@@ -1,0 +1,44 @@
+Metadata-Version: 2.4
+Name: pub_utils
+Version: 0.1.0
+Summary: Extract, Transform and Load publicly available datasets to create visualizations and data objects of standardized formats
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: h5py>=3.15.1
+Requires-Dist: ipykernel>=7.1.0
+Requires-Dist: matplotlib>=3.10.8
+Requires-Dist: networkx>=3.4.2
+Requires-Dist: openpyxl>=3.1.5
+Requires-Dist: pip>=25.3
+Requires-Dist: pyreadr>=0.5.4
+Requires-Dist: scipy>=1.15.3
+Requires-Dist: seaborn>=0.13.2
+Requires-Dist: zarr>=2.18.3
+
+
+
+# Repository organization
+
+
+# Data Sources
+
+### [Cell type classification]
+Worm Wiring project S.Cook, Nature 2019 paper
+Worm Atlas
+
+### [Neuron processes localization]
+D.Witvliet 2020 bioarxiv paper
+
+### [Neurotransmitter ligand expression]
+Wang...Hobert, 2025: https://pmc.ncbi.nlm.nih.gov/articles/PMC11488851/#s6
+
+### [Neurotransmitter receptor expression]
+Worm Atlas - ZF Altun annotation 2013: https://www.wormatlas.org/NTRmainframe.htm
+(pending scRNA data integration)
+
+### [Neuropeptide receptor expression]
+Worm Atlas - ZF Altun annotation 2013: https://www.wormatlas.org/NTRmainframe.htm
+Ripoll-Sanchez...Schaeffer, 2023: https://github.com/LidiaRipollSanchez/NemaMod/tree/main, https://github.com/LidiaRipollSanchez/Neuropeptide-Connectome
+
+### [Structural connectome]
+OpenWorm C. elegans Connectome Toolbox: https://openworm.org/ConnectomeToolbox/
