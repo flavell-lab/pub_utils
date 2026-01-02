@@ -79,7 +79,7 @@ def plot_connectome_matrix(df, title="", colormap_name='hot'):
     cbar.set_ticklabels(tick_labels)
     
     # Make colorbar label larger and bolded
-    cbar.set_label('# Ligand-Receptor Pairs', size=16, weight='bold', labelpad=5)
+    cbar.set_label('# Unique Ligand-Receptor Pairs', size=16, weight='bold', labelpad=5)
     
     # Titles and Labels
     plt.title(title, fontsize=20, pad=10, fontweight='bold')
