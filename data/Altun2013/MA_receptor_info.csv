@@ -1,0 +1,23 @@
+receptor,receptor_subunit,ligand,ligand_isoform,confidence,channel,GPCR,muscarinic,nicotinic,metabotropic,neuronal_expression,non_neuronal_expression
+dop-1,"[""DOP-1A"", ""DOP-1B"", ""DOP-1C""]",dopamine,,1,0,1,0,0,0,"[""ALM"", ""ALN"", ""AUA"", ""AVM"", ""PHC"", ""PLM"", ""PLN"", ""PVQ"", ""PVD"", ""RIB"", ""RIM"", ""RIS""]","[""excretory_gland"", ""head_muscle""]"
+dop-2,,dopamine,,1,0,1,0,0,0,"[""ADE"", ""CEP"", ""PDA"", ""PDE"", ""RIA"", ""RID"", ""SIA"", ""SIB""]",
+dop-3,,dopamine,,1,0,1,0,0,0,"[""ASE"", ""PVD"", ""RIC"", ""SIA""]","[""body_wall_muscle""]"
+dop-4,,dopamine,,1,0,1,0,0,0,"[""ASG"", ""AVL"", ""CAN"", ""I1"", ""I2"", ""PQR"", ""ASH""]","[""vulval_cells"", ""intestine"", ""rectal_gland"", ""rectal_epithelium""]"
+dop-5,,dopamine,,0.5,0,1,0,0,0,"[""ASE""]",
+dop-6,,dopamine,,1,0,1,0,0,0,,
+octr-1,,octopamine,,1,0,1,0,0,0,"[""ASH"", ""ASI""]",
+ser-3,,octopamine,,0.5,0,1,0,0,0,"[""SIA"", ""ASH"", ""PHA"", ""PHB"", ""PVQ""]","[""pharynx"", ""head_muscle"", ""phasmid_socket"", ""intestine"", ""spermatheca"", ""eggs"", ""gonad"", ""vulva""]"
+ser-6,,octopamine,,1,0,1,0,0,0,"[""AWB"", ""ADL"", ""ASI""]","[""intestine""]"
+tyra-3,,octopamine,,1,0,1,0,0,0,"[""CEP"", ""ADE""]","[""vulva""]"
+dop-5,,serotonin,,0.5,0,1,0,0,0,"[""ASE""]",
+lgc-50,,serotonin,,1,1,0,0,0,0,,
+mod-1,"[""MOD-1A"", ""MOD-1B"", ""MOD-1C""]",serotonin,,1,1,0,0,0,0,"[""AIA"", ""AIB"", ""AIY"", ""AIZ"", ""RIC"", ""RID"", ""RIM""]",
+ser-1,"[""SER-1A"", ""SER-1B""]",serotonin,,1,0,1,0,0,1,"[""RIA"", ""RIC"", ""URY"", ""PVT"", ""PVQ""]","[""pharyngeal_muscle"", ""vulval_muscle"", ""uterine_cells"", ""intestine"", ""diagonal_muscle""]"
+ser-3,,serotonin,,0.5,0,1,0,0,0,"[""SIA"", ""ASH"", ""PHA"", ""PHB"", ""PVQ""]","[""pharynx"", ""head_muscle"", ""phasmid_socket"", ""intestine"", ""spermatheca"", ""eggs"", ""gonad"", ""vulva""]"
+ser-4,,serotonin,,1,0,1,0,0,1,"[""RIB"", ""RIS"", ""PVT"", ""DVA"", ""DVC""]",
+ser-5,,serotonin,,1,0,1,0,0,1,"[""ASH"", ""AWB""]","[""vulval_muscle"", ""body_wall_muscle"", ""intestine""]"
+ser-7,,serotonin,,1,0,1,0,0,0,"[""I2"", ""I3"", ""I4"", ""I6"", ""M2"", ""M3"", ""M4"", ""M5"", ""MC""]","[""vulval_muscle"", ""intestine""]"
+lgc-55,,tyramine,,0.5,1,0,0,0,0,"[""ALN"", ""AVB"", ""HSN"", ""IL1D"", ""IL1V"", ""RMD"", ""SMDD"", ""SMDV"", ""SDQ""]","[""neck_muscle"", ""tail_muscle""]"
+ser-2,"[""SER-2A"", ""SER-2B"", ""SER-2D""]",tyramine,,1,0,1,0,0,0,"[""AIY"", ""ALN"", ""AUA"", ""AVH"", ""CAN"", ""DA9"", ""LUA"", ""NSM"", ""PVC"", ""RIA"", ""RIC"", ""RID"", ""SABD"", ""SABV"", ""SDQ"", ""AIZ"", ""BDU"", ""DVA"", ""PVT"", ""RME"", ""SIAD"", ""SIAV"", ""OLL"", ""PVD"", ""PDA""]","[""head_muscle"", ""diagonal_muscle"", ""excretory_gland""]"
+tyra-2,,tyramine,,1,0,1,0,0,0,"[""MC"", ""NSM"", ""ASE"", ""ASG"", ""ASH"", ""ASI"", ""PVD"", ""CAN"", ""ALM""]",
+tyra-3,,tyramine,,1,0,1,0,0,0,"[""CEP"", ""ADE""]","[""vulva""]"

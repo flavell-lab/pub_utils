@@ -44,25 +44,47 @@ pub_utils/
         └── plot.py
 ```
 
-## Data Sources
-
-#### [Cell type classification]
-Worm Wiring project S.Cook, Nature 2019 paper
-Worm Atlas
+## Data 
 
 #### [Neuroanatomy]
-D.Witvliet 2020 bioarxiv paper
+Worm Atlas:
+https://www.wormatlas.org/neurons/Individual%20Neurons/Neuronframeset.html
 
-#### [Neuropeptide receptor expression]
-Worm Atlas - ZF Altun annotation 2013: https://www.wormatlas.org/NTRmainframe.htm
-Ripoll-Sanchez...Schaeffer, 2023: https://github.com/LidiaRipollSanchez/NemaMod/tree/main, https://github.com/LidiaRipollSanchez/Neuropeptide-Connectome
+Witvliet 2021:
+https://github.com/dwitvliet/nature2021/tree/master
 
-#### [Neurotransmitter ligand expression]
-Wang...Hobert, 2025: https://pmc.ncbi.nlm.nih.gov/articles/PMC11488851/#s6
+#### [Neuropeptide ligand & receptor]
+Worm Atlas - Altun 2013: 
+https://www.wormatlas.org/NTRmainframe.htm
 
-#### [Neurotransmitter receptor expression]
-Worm Atlas - ZF Altun annotation 2013: https://www.wormatlas.org/NTRmainframe.htm
-(pending scRNA data integration)
+RipollSanchez...Schaeffer 2023 (fluorescent reporter & scRNAseq): 
+https://github.com/LidiaRipollSanchez/NemaMod/tree/main
+https://github.com/LidiaRipollSanchez/Neuropeptide-Connectome
+
+#### [Monoamine/Neurotransmitter ligand]
+Wang...Hobert, 2025:
+https://pmc.ncbi.nlm.nih.gov/articles/PMC11488851/#s6
+https://iiif.elifesciences.org/lax:95402%2Felife-95402-fig3-v1.tif/full/,1500/0/default.jpg
+
+WormAtlas:
+https://www.wormatlas.org/neurotransmitterstable.htm
+
+#### [Monoamine/Neurotransmitter receptor]
+Worm Atlas - Altun 2013: 
+https://www.wormatlas.org/NTRmainframe.htm
+
+GABA-A receptors (fluorescent reporter) - Gendrel...Hobert 2016: 
+https://elifesciences.org/articles/17686#tbl4
+
+GABA-B receptors (fluorescent reporter) - Yemini...Hobert 2023:
+https://pmc.ncbi.nlm.nih.gov/articles/PMC10494711/#SM1
+
+Dopamine receptors (fluorescent reporter & scRNAseq) - Muralidhara & Hardege 2025: 
+https://pmc.ncbi.nlm.nih.gov/articles/PMC12539964/table/T4
+
+Serotonin receptors (fluorescent reporter) - Dag...Flavell 2023: 
+CSV curated by Ugur Dag for Di Kang to make Figure 7
 
 ### [Structural connectome]
-OpenWorm C. elegans Connectome Toolbox: https://openworm.org/ConnectomeToolbox/
+White 1986, Witvliet 2021 - accessed via OpenWorm C. elegans Connectome Toolbox: 
+https://openworm.org/ConnectomeToolbox/

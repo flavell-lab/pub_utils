@@ -1,0 +1,53 @@
+receptor,receptor_subunit,ligand,ligand_isoform,confidence,channel,GPCR,muscarinic,nicotinic,metabotropic,neuronal_expression,non_neuronal_expression
+daf-2,,daf-28,,1,0,0,0,0,0,,"[""intestine"", ""gonad""]"
+ckr-2,"[""CKR-2A""]",flp-1,,1,0,1,0,0,0,"[""AIY""]",
+npr-11,,flp-1,"[""FLP-1-6""]",1,0,1,0,0,0,"[""AIA"", ""AIY"", ""AWC""]",
+npr-22,"[""NPR-22A""]",flp-1,"[""FLP-1-6""]",1,0,1,0,0,0,,
+npr-4,,flp-1,"[""FLP-1-6""]",1,0,1,0,0,0,"[""AVA"", ""RIV"", ""PQR"", ""BDU"", ""BAG""]","[""coelomocytes"", ""intestine"", ""rectal_gland""]"
+npr-5,"[""NPR-5A"", ""NPR-5B""]",flp-1,"[""FLP-1-2""]",1,0,1,0,0,0,"[""ADF"", ""ASE"", ""ASG"", ""ASI"", ""ASJ"", ""ASK"", ""AWA"", ""AWB"", ""IL2"", ""AIA"", ""LUA"", ""PHA"", ""PHB""]","[""head_muscle"", ""neck_muscle"", ""body_muscle""]"
+egl-6,"[""EGL-6A"", ""EGL-6B""]",flp-10,,1,0,1,0,0,0,"[""HSN""]","[""head_glia""]"
+frpr-3,,flp-11,"[""FLP-11-1""]",1,0,1,0,0,0,,
+npr-22,"[""NPR-22A""]",flp-11,"[""FLP-11-1"", ""FLP-11-2"", ""FLP-11-3""]",1,0,1,0,0,0,,
+npr-22,"[""NPR-22A""]",flp-13,"[""FLP-13-4""]",1,0,1,0,0,0,,
+npr-11,,flp-14,,1,0,1,0,0,0,"[""AIA"", ""AIY"", ""AWC""]",
+npr-3,,flp-15,"[""FLP-15-1"", ""FLP-15-2""]",1,0,1,0,0,0,,
+egl-6,"[""EGL-6A"", ""EGL-6B""]",flp-17,"[""FLP-17-1"", ""FLP-17-2""]",1,0,1,0,0,0,"[""HSN""]","[""head_glia""]"
+npr-1,,flp-18,,1,0,1,0,0,0,"[""AQR"", ""PQR"", ""URX"", ""ASE"", ""ASG"", ""ASH"", ""IL2L"", ""IL2R"", ""OLQ"", ""AUA"", ""SAAD"", ""RMG"", ""SMBD"", ""M3""]",
+npr-10,"[""NPR-10A"", ""NPR-10B""]",flp-18,"[""FLP-18-1"", ""FLP-18-3"", ""FLP-18-4"", ""FLP-18-5"", ""FLP-18-6""]",1,0,1,0,0,0,,
+npr-11,,flp-18,"[""FLP-18-3""]",1,0,1,0,0,0,"[""AIA"", ""AIY"", ""AWC""]",
+npr-4,,flp-18,"[""FLP-18-1"", ""FLP-18-2"", ""FLP-18-3"", ""FLP-18-4"", ""FLP-18-5"", ""FLP-18-6""]",1,0,1,0,0,0,"[""AVA"", ""RIV"", ""PQR"", ""BDU"", ""BAG""]","[""coelomocytes"", ""intestine"", ""rectal_gland""]"
+npr-5,"[""NPR-5A"", ""NPR-5B""]",flp-18,"[""FLP-18-1"", ""FLP-18-2"", ""FLP-18-3"", ""FLP-18-4"", ""FLP-18-5"", ""FLP-18-6""]",1,0,1,0,0,0,"[""ADF"", ""ASE"", ""ASG"", ""ASI"", ""ASJ"", ""ASK"", ""AWA"", ""AWB"", ""IL2"", ""AIA"", ""LUA"", ""PHA"", ""PHB""]","[""head_muscle"", ""neck_muscle"", ""body_muscle""]"
+npr-6,,flp-18,"[""FLP-18-3"", ""FLP-18-6""]",1,0,1,0,0,0,,
+frpr-18,"[""FRPR-18A"", ""FRPR-18B""]",flp-2,"[""FLP-2-1"", ""FLP-2-2""]",1,0,1,0,0,0,,
+npr-1,,flp-21,,1,0,1,0,0,0,"[""AQR"", ""PQR"", ""URX"", ""ASE"", ""ASG"", ""ASH"", ""IL2L"", ""IL2R"", ""OLQ"", ""AUA"", ""SAAD"", ""RMG"", ""SMBD"", ""M3""]",
+npr-11,,flp-21,,1,0,1,0,0,0,"[""AIA"", ""AIY"", ""AWC""]",
+npr-5,"[""NPR-5A"", ""NPR-5B""]",flp-21,,1,0,1,0,0,0,"[""ADF"", ""ASE"", ""ASG"", ""ASI"", ""ASJ"", ""ASK"", ""AWA"", ""AWB"", ""IL2"", ""AIA"", ""LUA"", ""PHA"", ""PHB""]","[""head_muscle"", ""neck_muscle"", ""body_muscle""]"
+npr-6,,flp-21,,1,0,1,0,0,0,,
+npr-22,"[""NPR-22A""]",flp-22,,1,0,1,0,0,0,,
+npr-10,"[""NPR-10A"", ""NPR-10B""]",flp-3,"[""FLP-3-1"", ""FLP-3-3"", ""FLP-3-5"", ""FLP-3-6"", ""FLP-3-7"", ""FLP-3-8""]",1,0,1,0,0,0,,
+npr-5,"[""NPR-5A"", ""NPR-5B""]",flp-3,"[""FLP-3-1"", ""FLP-3-3"", ""FLP-3-6"", ""FLP-3-8""]",1,0,1,0,0,0,"[""ADF"", ""ASE"", ""ASG"", ""ASI"", ""ASJ"", ""ASK"", ""AWA"", ""AWB"", ""IL2"", ""AIA"", ""LUA"", ""PHA"", ""PHB""]","[""head_muscle"", ""neck_muscle"", ""body_muscle""]"
+npr-4,,flp-4,"[""FLP-4-2""]",1,0,1,0,0,0,"[""AVA"", ""RIV"", ""PQR"", ""BDU"", ""BAG""]","[""coelomocytes"", ""intestine"", ""rectal_gland""]"
+npr-5,,flp-4,"[""FLP-4-2""]",1,0,1,0,0,0,"[""ADF"", ""ASE"", ""ASG"", ""ASI"", ""ASJ"", ""ASK"", ""AWA"", ""AWB"", ""IL2"", ""AIA"", ""LUA"", ""PHA"", ""PHB""]","[""head_muscle"", ""neck_muscle"", ""body_muscle""]"
+npr-11,,flp-5,"[""FLP-5-2""]",1,0,1,0,0,0,"[""AIA"", ""AIY"", ""AWC""]",
+frpr-3,,flp-7,"[""FLP-7-1"", ""FLP-7-2"", ""FLP-7-3"", ""FLP-7-4""]",1,0,1,0,0,0,,
+npr-22,"[""NPR-22A""]",flp-7,"[""FLP-7-1"", ""FLP-7-2"", ""FLP-7-3"", ""FLP-7-4""]",1,0,1,0,0,0,,
+npr-22,"[""NPR-22A""]",flp-9,,1,0,1,0,0,0,,
+daf-2,,ins-1,,1,0,0,0,0,0,,"[""intestine"", ""gonad""]"
+daf-2,,ins-7,,1,0,0,0,0,0,,"[""intestine"", ""gonad""]"
+npr-11,,nlp-1,,1,0,1,0,0,0,"[""AIA"", ""AIY"", ""AWC""]",
+ckr-2,,nlp-12,"[""NLP-12A"", ""NLP-12B""]",1,0,1,0,0,0,"[""AIY""]",
+ckr-2,,nlp-13,,1,0,1,0,0,0,"[""AIY""]",
+ckr-2,,nlp-14,,1,0,1,0,0,0,"[""AIY""]",
+nmur-2,,nlp-44,,1,0,1,0,0,0,,
+gnrr-1,"[""GNRR-1A""]",nlp-47,,1,0,1,0,0,0,,
+ntr-1,,ntc-1,,1,0,1,0,0,0,,
+hpa-1,,,,1,0,0,0,0,0,,"[""phasmid_socket"", ""intestine"", ""amphid_socket""]"
+hpa-2,,,,1,0,0,0,0,0,,"[""phasmid_socket"", ""intestine"", ""amphid_socket""]"
+lat-1,"[""LAT-1A"", ""LAT-1B"", ""LAT-1C""]",,,1,0,1,0,0,0,"[""AIY""]",
+lat-2,,,,1,0,1,0,0,0,,"[""gland_cells"", ""arcade_cells""]"
+lgc-37,,,,1,1,0,0,0,0,"[""ALM"", ""AVM"", ""PLM""]",
+npr-14,,,,1,0,1,0,0,0,"[""AIY""]",
+npr-15,,,,1,0,1,0,0,0,"[""AWC"", ""ASG"", ""ASE"", ""ASI"", ""ASJ""]",
+npr-16,"[""NPR-16A"", ""NPR-16B""]",,,1,0,1,0,0,0,,"[""anal_depressor_muscle"", ""vulval_muscle""]"
+npr-9,,,,1,0,1,0,0,0,"[""AIB""]",
+seb-2,,,,1,0,1,0,0,0,,"[""head_muscle"", ""vulval_muscle""]"
