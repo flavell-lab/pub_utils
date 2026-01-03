@@ -88,3 +88,9 @@ CSV curated by Ugur Dag for Di Kang to make Figure 7
 ### [Structural connectome]
 White 1986, Witvliet 2021 - accessed via OpenWorm C. elegans Connectome Toolbox: 
 https://openworm.org/ConnectomeToolbox/
+
+
+# Rationales behind Extract, Transform, Load procedures for molecular connectomes
+1) Built monoamine (MA) connectomes and neurotransmitter (NT) connectomes based on fluorescent reporter data for both ligand and receptors
+2) Used neuropeptide (NPP) connectomes built by LipollSanchez2023, which was based on in vitro validation and scRNAseq
+3) For all connectomes, `1` represents known connection, whereas `0` is the absence of evidence of connection -- not evidence of absence!
