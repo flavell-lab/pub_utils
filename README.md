@@ -94,3 +94,41 @@ https://openworm.org/ConnectomeToolbox/
 1) Built monoamine (MA) connectomes and neurotransmitter (NT) connectomes based on fluorescent reporter data for both ligand and receptors
 2) Used neuropeptide (NPP) connectomes built by LipollSanchez2023, which was based on in vitro validation and scRNAseq
 3) For all connectomes, `1` represents known connection, whereas `0` is the absence of evidence of connection -- not evidence of absence!
+
+
+# OpenWorm - C.elegans Connectome Toolbox
+
+### Structural connectome
+
+Cook2019Herm - all
+Cook2019Male - all
+Cook2020 - herm pharynx only
+
+### Molecular connectome
+
+Neurotransmitter - GABA, Glutamate, Acetylcholine
+
+Monoamine - Dopamine, Serotonin, Octopamine, Tyramine, Betaine
+
+Neuropeptide
+
+
+Wang2024Herm
+Wang2024Male
+
+
+### Causal connectome
+
+Randi2023 - head neurons only
+
+
+# Overlapping data
+
+Data from the same lab - only the latest version was used
+e.g. Neuropeptide connectome from LipollSanchez2023 is used instead of Bentley2016_PEP since both came out of the Schaefer lab
+e.g. Neurotransmitter atlas from Wang2024 is used instead of Serrano-Saiz2013, Pereira2015, Gendrel2016 since they all came out of the Hobert lab
+
+Data from different labs - all were included as independent observations
+exception#1: White1986 (N2U) was dropped and Varshney2011 was used instead because Varshney went back to the lab notebook of White et al. and fixed a few misannotations/ missing links. Varshley also merged N2U with the midbody and tail datasets from 2 other labs.
+
+exception#2: White1986 (A, which was a merge of N2U, N2T, N2W, JSA, JSE)/ Varshley2011 were considered independent observations from Cook2019Herm even though it was the same 5 specimen. This is because Cook2019Herm was a re-annotation of the same images on a new graphical user interface that boosted synaptic counts.
