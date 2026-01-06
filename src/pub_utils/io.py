@@ -148,3 +148,18 @@ def get_file_for_pair(neuropeptide, receptor):
     # Convert to lowercase for case-insensitive lookup
     key = f"{neuropeptide} {receptor}".lower()
     return mapping.get(key)
+
+
+def standardize_dataframe(df, neuron_order):
+    
+    plot_df = df.set_index('Row').rename_axis(None) if 'Row' in df.columns else df.copy()
+
+    # Check that it's square
+    assert plot_df.shape[0] == plot_df.shape[1], "Not a square matrix"
+
+    # Check that row and column names match
+    assert list(plot_df.index) == list(plot_df.columns), "Row and column labels don't match"
+    
+    std_df = plot_df.reindex(index=neuron_order, columns=neuron_order)   # Reindex to include all names in col_order, filling missing ones with NaN
+
+    return std_df

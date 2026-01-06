@@ -3,21 +3,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.colors as mcolors
 
-def plot_connectome_matrix(df, title="", colormap_name='hot'):
-    plot_df = df.copy()
-    
-    # 1. Handle the 'Row' column and clean neuron names
-    if 'Row' in plot_df.columns:
-        plot_df['Row'] = plot_df['Row'].astype(str).str.strip()
-        plot_df = plot_df.set_index('Row')
-    
-    # 2. Synchronize Ticks: Sorted alphabetically
-    plot_df.index = plot_df.index.astype(str)
-    plot_df.columns = plot_df.columns.astype(str)
-    all_neurons = sorted(list(set(plot_df.index) | set(plot_df.columns)))
-    plot_df = plot_df.reindex(index=all_neurons, columns=all_neurons).fillna(0)
-
-    # 3. Determine max value and create adaptive colormap from continuous colormap
+def plot_connectome_matrix(plot_df, title="", colormap_name='hot'):
+   
+    # Determine max value and create adaptive colormap from continuous colormap
     max_val = int(plot_df.max().max())
     num_colors = max_val + 1  # Include 0
     
@@ -92,7 +80,7 @@ def plot_connectome_matrix(df, title="", colormap_name='hot'):
     plt.show()
     
     # Return both the dataframe and figure
-    return plot_df, fig
+    return fig
 
 
 import networkx as nx
