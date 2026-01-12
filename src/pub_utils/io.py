@@ -1,6 +1,12 @@
 # import h5py
 # import zarr
 import pickle
+import pandas as pd
+from pathlib import Path
+
+# Default path to neuroanatomy mapping file
+# __file__ is src/pub_utils/io.py, so .parent.parent.parent gets to project root
+_DEFAULT_MAPPING_PATH = Path(__file__).parent.parent.parent / 'data' / 'RipollSanchez2023' / 'neuroanatomy.csv'
 
 
 def handle_pickle(data=None, filename="data.pkl", mode="save"):
@@ -150,8 +156,24 @@ def get_file_for_pair(neuropeptide, receptor):
     return mapping.get(key)
 
 
-def standardize_dataframe(df, neuron_order):
-    
+def standardize_dataframe(df, neuron_order, mapping_df='default', verbose=True):
+    """
+    Standardize a square connectome matrix to use canonical neuronID naming.
+
+    Args:
+        df: Square DataFrame with neuron identifiers as row/column labels.
+            If 'Row' column exists, it will be used as the index.
+        neuron_order: List of neuronIDs defining the desired row/column order.
+        mapping_df: DataFrame containing neuron name mappings, or 'default' to use
+            neuroanatomy.csv, or None to skip mapping.
+            Must have 'neuronID' column and can have 'neuronClass',
+            'figNeuronClass', and/or 'synonym' columns for mapping.
+        verbose: If True, print messages about name mappings and missing neurons.
+
+    Returns:
+        Standardized DataFrame with neuronID as row/column labels,
+        reindexed to match neuron_order.
+    """
     plot_df = df.set_index('Row').rename_axis(None) if 'Row' in df.columns else df.copy()
 
     # Check that it's square
@@ -159,7 +181,81 @@ def standardize_dataframe(df, neuron_order):
 
     # Check that row and column names match
     assert list(plot_df.index) == list(plot_df.columns), "Row and column labels don't match"
-    
-    std_df = plot_df.reindex(index=neuron_order, columns=neuron_order)   # Reindex to include all names in col_order, filling missing ones with NaN
+
+    # Load default mapping if requested
+    if mapping_df == 'default':
+        if _DEFAULT_MAPPING_PATH.exists():
+            mapping_df = pd.read_csv(_DEFAULT_MAPPING_PATH)
+        else:
+            raise FileNotFoundError(f"Default mapping file not found: {_DEFAULT_MAPPING_PATH}")
+
+    # Map row/column names to neuronID
+    if mapping_df is not None:
+        name_to_id = _build_neuron_mapping(mapping_df)
+
+        # Track alternative name mappings for verbose output
+        alt_mappings = []
+        for name in plot_df.index:
+            if name in name_to_id and name_to_id[name] != name:
+                alt_mappings.append((name, name_to_id[name]))
+
+        if verbose and alt_mappings:
+            print(f"Mapped {len(alt_mappings)} alternative names to neuronID:")
+            for alt_name, neuron_id in alt_mappings:
+                print(f"  {alt_name} -> {neuron_id}")
+
+        # Map index and columns to neuronID
+        new_index = [name_to_id.get(name, name) for name in plot_df.index]
+        new_columns = [name_to_id.get(name, name) for name in plot_df.columns]
+
+        plot_df.index = new_index
+        plot_df.columns = new_columns
+
+    # Track missing neurons before reindex
+    if verbose:
+        current_neurons = set(plot_df.index)
+        missing_neurons = [n for n in neuron_order if n not in current_neurons]
+        if missing_neurons:
+            print(f"Filling {len(missing_neurons)} missing neuronIDs with NaN:")
+            for neuron_id in missing_neurons:
+                print(f"  {neuron_id} (not found)")
+
+    std_df = plot_df.reindex(index=neuron_order, columns=neuron_order)
 
     return std_df
+
+
+def _build_neuron_mapping(mapping_df):
+    """
+    Build a dictionary mapping alternative neuron names to canonical neuronID.
+
+    Args:
+        mapping_df: DataFrame with 'neuronID' and optional columns
+            'neuronClass', 'figNeuronClass', 'synonym'.
+
+    Returns:
+        Dict mapping any known name to its canonical neuronID.
+    """
+    if 'neuronID' not in mapping_df.columns:
+        raise ValueError("mapping_df must contain 'neuronID' column")
+
+    name_to_id = {}
+    mapping_cols = ['neuronClass', 'figNeuronClass', 'synonym']
+
+    for _, row in mapping_df.iterrows():
+        neuron_id = row['neuronID']
+
+        # Map neuronID to itself
+        name_to_id[neuron_id] = neuron_id
+
+        # Map alternative names to neuronID
+        for col in mapping_cols:
+            if col in mapping_df.columns:
+                alt_name = row.get(col)
+                if pd.notna(alt_name) and alt_name != '':
+                    # Only map if not already mapped (first occurrence wins)
+                    # This handles cases where multiple neuronIDs share a class
+                    if alt_name not in name_to_id:
+                        name_to_id[alt_name] = neuron_id
+
+    return name_to_id

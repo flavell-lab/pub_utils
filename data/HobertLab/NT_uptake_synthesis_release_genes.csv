@@ -1,0 +1,9 @@
+Neurotransmitter,UptakeGene,SynthesisGene,ReleaseGene
+Glutamate,,,eat-4
+Acetylcholine,cho-1,cha-1,unc-17
+GABA,snf-11,unc-25,unc-47
+Serotonin,mod-5,tph-1,cat-1
+Dopamine,dat-1,cat-2,cat-1
+Octopamine,,tbh-1,cat-1
+Tyramine,oct-1,tdc-1,cat-1
+Betaine,snf-3,,cat-1
