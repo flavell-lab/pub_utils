@@ -1,0 +1,67 @@
+neuron_feature:
+data/RipollSanchez2023/neuroanatomy.csv
+
+
+structural - electrical_synapse_preassembled_connectome:
+
+
+
+structural - chemical_synapse_preassembled_connectome:
+
+
+
+molecular - innexin_expression:
+
+
+
+molecular - gene_info:
+data/HobertLab/NT_uptake_synthesis_release_gene_info.csv
+
+
+molecular - neurotransmitter_release:
+data/Bentley2016/NT_release_literature.csv
+data/Wang2024/NT_release_reporter.csv
+data/Wang2024/NT_release_staining.csv
+
+
+molecular - neuropeptide_release:
+data/Bentley2016/NPP_release_literature.csv
+data/RipollSanchez2023/NPP_release_sequencing.csv
+
+
+molecular - neurotransmitter_receptor:
+data/Bentley2016/NT_receptor_all_literature.csv
+data/Dag2023/serotonin_receptor_all_literature.csv
+data/Fenyves2020/acetylcholine_receptor_ionotropic_sequencing.csv
+data/Fenyves2020/gaba_receptor_ionotropic_sequencing.csv
+data/Fenyves2020/glutamate_receptor_ionotropic_sequencing.csv
+data/HobertLab/acetylcholine_receptor_metabotropic_reporter.csv
+data/HobertLab/gaba_receptor_all_reporter.csv
+data/Muralidhara2025/dopamine_receptor_all_reporter.csv
+data/Muralidhara2025/dopamine_receptor_all_sequencing.csv
+
+
+molecular - neuropeptide_receptor:
+data/Altun2013/NPP_receptor_info.csv
+data/Bentley2016/NPP_receptor_metabotropic_literature.csv
+data/RipollSanchez2023/NPP_receptor_all_sequencing.csv
+
+
+molecular - neurotransmitter_release_receptor_pairing:
+data/Altun2013/NT_receptor_info.csv
+data/Altun2013/MA_receptor_info.csv
+
+
+molecular - neuropepeptide_release_receptor_pairing:
+data/Bentley2016/NPP_receptor_info.csv
+data/RipollSanchez2023/NPP_receptor_info.csv
+
+
+molecular - neurotransmitter_preassembled_connectome:
+connectomes/preassembled/monoamine_RipollSanchez2023.csv
+
+
+molecular - neuropepeptide_preassembled_connectome:
+connectomes/preassembled/NPP_RipollSanchez2023_shortRange.csv
+connectomes/preassembled/NPP_RipollSanchez2023_midRange.csv
+connectomes/preassembled/NPP_RipollSanchez2023_longRange.csv

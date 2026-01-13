@@ -1,9 +1,9 @@
-import seaborn as sns
 import matplotlib.pyplot as plt
-import numpy as np
 import matplotlib.colors as mcolors
+import numpy as np
+import seaborn as sns
 
-def plot_connectome_matrix(plot_df, title="", colormap_name='hot'):
+def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_label='# Unique Ligand-Receptor Pairs'):
    
     # Determine max value and create adaptive colormap from continuous colormap
     max_val = int(plot_df.max().max())
@@ -13,8 +13,6 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot'):
     base_cmap = plt.get_cmap(colormap_name)
     
     # Sample colors evenly from the colormap
-    # Use linspace to get evenly spaced values, avoiding the extreme end (1.0) 
-    # which can be too light in some colormaps
     if num_colors == 1:
         color_indices = [0]
     else:
@@ -25,6 +23,11 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot'):
     
     # Create discrete colormap
     cmap = mcolors.ListedColormap(colors)
+    
+    # --- Modification: Set NaN values to grey ---
+    cmap.set_bad("grey") 
+    # --------------------------------------------
+
     bounds = list(range(max_val + 2))  # [0, 1, 2, ..., max_val+1]
     norm = mcolors.BoundaryNorm(bounds, cmap.N)
     
@@ -67,7 +70,7 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot'):
     cbar.set_ticklabels(tick_labels)
     
     # Make colorbar label larger and bolded
-    cbar.set_label('# Unique Ligand-Receptor Pairs', size=16, weight='bold', labelpad=5)
+    cbar.set_label(colorbar_label, size=16, weight='bold', labelpad=5)
     
     # Titles and Labels
     plt.title(title, fontsize=20, pad=10, fontweight='bold')
@@ -79,7 +82,7 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot'):
     plt.tight_layout()
     plt.show()
     
-    # Return both the dataframe and figure
+    # Return the figure
     return fig
 
 
