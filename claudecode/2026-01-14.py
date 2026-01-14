@@ -68,9 +68,43 @@ NOTEBOOK CHANGES (not logged per user request)
 - access_openworm_structural_connectomes.ipynb was modified but not logged here.
 
 
+CHANGES TO data/Altun2013/NT_receptor_info.csv
+----------------------------------------------
+1. Merged MA_receptor_info.csv (monoamine receptors) into NT_receptor_info.csv
+   - Original NT had: acetylcholine, gaba, glutamate, glycine (85 rows)
+   - Added MA: dopamine, octopamine, serotonin, tyramine (22 rows)
+   - Final: 107 rows covering 8 ligand types
+
+2. Preserved original confidence values (0, 0.5, 1, 2)
+   - Thresholding (confidence < 1 → 0) will be applied in assembly logic, not in data
+
+
+CHANGES TO data/assets.json (NEW FILE)
+--------------------------------------
+Created structured JSON file to replace assets.txt for easier programmatic access.
+
+Structure:
+- neuron_features: neuroanatomy.csv path
+- structural_connectomes:
+  - preassembled:
+    - electrical_synapse: 15 datasets
+    - chemical_synapse: 16 datasets
+- molecular_connectomes:
+  - preassembled:
+    - neuropeptide: 3 datasets (short/mid/long range)
+    - monoamine: 5 datasets
+  - dk_assembly: (empty, for future assembled connectomes)
+- gene_info: NT_uptake_synthesis_release_gene_info.csv
+- pairing_info: NT and NPP receptor pairing files
+- release: NT and NPP release data by method (literature/reporter/staining/sequencing)
+- receptor: NT and NPP receptor data organized by ligand/type/method/source
+
+
 SESSION NOTES
 -------------
 - User requested IL1 neurons (IL1DL, IL1DR, IL1L, IL1R, IL1VL, IL1VR) be grouped
   with interneurons instead of motor neurons, so Motor-anterior starts at SIADL.
 - Block definitions are designed for visualization of hermaphrodite connectomes.
+- Confidence thresholding for pairing info to be applied in code logic, not data files.
+- dk_assembly key reserved for user's custom molecular connectome assembly outputs.
 """

@@ -1,86 +1,108 @@
 receptor,receptor_subunit,ligand,ligand_isoform,confidence,channel,GPCR,muscarinic,nicotinic,metabotropic,neuronal_expression,non_neuronal_expression
-acc-1,,acetylcholine,,1,1,0,0,0,0,,
-acc-2,,acetylcholine,,1,1,0,0,0,0,,
-acc-3,,acetylcholine,,1,1,0,0,0,0,,
-acc-4,,acetylcholine,,1,1,0,0,0,0,,
-acr-1,,acetylcholine,,1,1,0,0,1,0,,"[""body_wall_muscle""]"
-acr-10,,acetylcholine,,1,1,0,0,1,0,,
-acr-11,,acetylcholine,,1,1,0,0,1,0,,
-acr-12,,acetylcholine,,1,1,0,0,1,0,,
-acr-13,,acetylcholine,,1,1,0,0,1,0,"[""PVT"", ""ALA"", ""DD"", ""IL"", ""OL""]","[""body_wall_muscle"", ""uterine_muscle"", ""anal_depressor_muscle""]"
-acr-14,,acetylcholine,,1,1,0,0,1,0,"[""AIY"", ""AS"", ""DA"", ""DB"", ""DD"", ""HSN"", ""VB"", ""VC4"", ""VC5""]","[""body_wall_muscle"", ""intestine""]"
-acr-15,,acetylcholine,,1,1,0,0,1,0,"[""AVA"", ""AVB"", ""DVA"", ""I5"", ""RID"", ""RIM"", ""PVQ"", ""SAA"", ""SIA"", ""SIB"", ""SMB"", ""SMD""]","[""head_muscle"", ""body_wall_muscle""]"
-acr-16,,acetylcholine,,1,1,0,0,1,0,"[""AVA"", ""RIB"", ""RID"", ""SIB"", ""SMD"", ""CEP"", ""ADE"", ""DB""]","[""anal_depressor_muscle"", ""head_muscle"", ""body_wall_muscle""]"
-acr-17,,acetylcholine,,1,1,0,0,1,0,,
-acr-18,,acetylcholine,,1,1,0,0,1,0,,
-acr-19,,acetylcholine,,1,1,0,0,1,0,,
-acr-2,,acetylcholine,,1,1,0,0,1,0,"[""DA"", ""DB"", ""IL1"", ""PVQ"", ""RMD"", ""VA"", ""VB""]",
-acr-20,,acetylcholine,,1,1,0,0,1,0,,
-acr-21,,acetylcholine,,1,1,0,0,1,0,,
-acr-22,,acetylcholine,,1,1,0,0,1,0,,
-acr-23,,acetylcholine,,1,1,0,0,1,0,,
-acr-24,,acetylcholine,,1,1,0,0,1,0,,
-acr-25,,acetylcholine,,1,1,0,0,1,0,,
-acr-3,,acetylcholine,,1,1,0,0,1,0,,
-acr-4,,acetylcholine,,1,1,0,0,1,0,"[""IL2"", ""ALM"", ""AVM"", ""PLM"", ""AVG"", ""PVD"", ""PVC"", ""FLP"", ""ALA""]","[""head_muscle""]"
-acr-5,,acetylcholine,,1,1,0,0,1,0,"[""DB"", ""VB""]",
-acr-6,,acetylcholine,,1,1,0,0,1,0,,
-acr-7,,acetylcholine,,1,1,0,0,1,0,,"[""pharyngeal_muscle""]"
-acr-8,,acetylcholine,,1,1,0,0,1,0,,"[""body_wall_muscle"", ""anal_muscle"", ""vulval_muscle""]"
-acr-9,,acetylcholine,,2,2,1,1,2,1,,
-cup-4,,acetylcholine,,0.5,1,0,0,1,0,,"[""coelomocytes""]"
-deg-3,,acetylcholine,,1,1,0,0,1,0,"[""IL2"", ""ALM"", ""AVM"", ""PLM"", ""AVG"", ""PVD"", ""PVC"", ""FLP""]","[""head_muscle""]"
-eat-2,,acetylcholine,,1,1,0,0,1,0,"[""MC""]","[""pharyngeal_muscle""]"
-gar-1,"[""GAR-1A"", ""GAR-1B"", ""GAR-1C""]",acetylcholine,,1,0,1,1,0,0,"[""PVM""]",
-gar-2,,acetylcholine,,1,0,1,1,0,0,"[""AIY"", ""HSN""]",
-gar-3,,acetylcholine,,1,0,1,1,0,0,"[""I3"", ""VD"", ""DD"", ""SPC"", ""PCB"", ""PCA""]","[""pharyngeal_muscle"", ""anal_depressor_muscle"", ""body_wall_muscle"", ""spicule_protractor_muscle""]"
-unc-29,,acetylcholine,,1,1,0,0,1,0,,"[""body_wall_muscle""]"
-unc-38,,acetylcholine,,1,1,0,0,1,0,,"[""body_wall_muscle"", ""vulval_muscle"", ""sex_muscle"", ""protractor_muscle""]"
-unc-63,,acetylcholine,,1,1,0,0,1,0,"[""AS"", ""DA"", ""DB"", ""VB"", ""VD"", ""VC""]","[""body_wall_muscle"", ""vulval_muscle""]"
-lgc-31,,acetylcholine,,0.5,1,0,0,1,0,,
-lgc-46,,acetylcholine,,0,1,0,0,0,0,,
-lgc-47,,acetylcholine,,0,1,0,0,0,0,,
-lgc-48,,acetylcholine,,0,1,0,0,0,0,,
-lgc-49,,acetylcholine,,0,1,0,0,0,0,,
-exp-1,,gaba,,1,1,0,0,0,0,"[""ADE"", ""PDA"", ""RID"", ""SABD""]","[""intestinal_muscle"", ""anal_depressor_muscle""]"
-gab-1,,gaba,,1,1,0,0,0,0,"[""ALM"", ""AVM"", ""PLM""]",
-gbb-1,,gaba,,1,0,1,0,0,1,,
-gbb-2,,gaba,,1,0,1,0,0,1,,
-ggr-1,,gaba,,1,1,0,0,0,0,"[""AIB"", ""AVH"", ""PVR"", ""PVQ"", ""SMDV""]","[""egg_laying_muscle""]"
-ggr-2,,gaba,,1,1,0,0,0,0,"[""CAN"", ""DD"", ""HSN"", ""SIAV"", ""SMDV"", ""SMDD""]","[""egg_laying_muscle""]"
-ggr-3,,gaba,,1,1,0,0,0,0,"[""AVA"", ""AVB"", ""DVA"", ""SIAD"", ""SMDD""]",
-lgc-35,,gaba,,1,1,0,0,0,0,,
-lgc-36,,gaba,,0,1,0,0,0,0,,
-lgc-37,,gaba,,0,1,0,0,0,0,,
-lgc-38,,gaba,,1,1,0,0,0,0,"[""AIY""]",
-lgc-39,,gaba,,0,1,0,0,0,0,,
-lgc-40,,gaba,,0,1,0,0,0,0,,
-lgc-41,,gaba,,0,1,0,0,0,0,,
-lgc-42,,gaba,,0,1,0,0,0,0,,
-lgc-51,,gaba,,0,1,0,0,0,0,,
-lgc-52,,gaba,,0,1,0,0,0,0,,
-lgc-53,,gaba,,0,1,0,0,0,0,,
-lgc-54,,gaba,,0,1,0,0,0,0,,
-unc-49,"[""UNC-49A"", ""UNC-49B"", ""UNC-49C""]",gaba,,1,1,0,0,0,0,,"[""body_wall_muscle"", ""anal_sphincter_muscle""]"
-avr-14,,glutamate,,1,1,0,0,0,0,,
-avr-15,,glutamate,,1,1,0,0,0,0,"[""RMED"", ""RMEV"", ""RMG"", ""DA9"", ""VA12"", ""M3""]","[""pharyngeal_muscle""]"
-glc-1,,glutamate,,1,1,0,0,0,0,,
-glc-2,,glutamate,,1,1,0,0,0,0,,"[""pharyngeal_muscle""]"
-glc-3,,glutamate,,1,1,0,0,0,0,"[""AIY"", ""AWC"", ""AIA""]",
-glc-4,,glutamate,,1,1,0,0,0,0,,
-glr-1,,glutamate,,1,1,0,0,0,0,"[""AVA"", ""AVB"", ""AVD"", ""AVE"", ""PVC"", ""AIB"", ""AVG"", ""PVQ"", ""RMD"", ""RIM"", ""SMD"", ""URY""]",
-glr-2,,glutamate,,1,1,0,0,0,0,"[""AVA"", ""AVD"", ""AVE"", ""PVC"", ""AIA"", ""AIB"", ""AVG"", ""DVA"", ""M1"", ""RIA"", ""RIG"", ""RIR"", ""RMDV"", ""RMDD""]",
-glr-3,,glutamate,,1,1,0,0,0,0,"[""RIA""]",
-glr-4,,glutamate,,1,1,0,0,0,0,"[""AUA"", ""AVA"", ""AVH"", ""DVA"", ""DB"", ""FLP"", ""PVD"", ""PVU"", ""RIB"", ""RIF"", ""RIM"", ""RMD"", ""RMG"", ""SAA"", ""SAB"", ""SIB"", ""SMD"", ""URA"", ""URY""]",
-glr-5,,glutamate,,1,1,0,0,0,0,"[""AIB"", ""AVA"", ""AVB"", ""AVD"", ""AVE"", ""AVK"", ""DVA"", ""HSN"", ""LUA"", ""PVC"", ""PVQ"", ""RIM"", ""RIC"", ""RIF"", ""RME"", ""RMD"", ""RMG"", ""SABVL"", ""SABVR"", ""SABD"", ""SIB"", ""SMD"", ""URA"", ""URB"", ""URY"", ""VC""]",
-glr-6,,glutamate,,1,1,0,0,0,0,"[""RIA""]",
-glr-7,,glutamate,,1,1,0,0,0,0,"[""I1"", ""I2"", ""I3"", ""I6"", ""MI"", ""NSM""]",
-glr-8,,glutamate,,1,1,0,0,0,0,"[""ALM"", ""BDU"", ""I1"", ""I2"", ""I3"", ""I6"", ""MI"", ""M3"", ""M4"", ""M5"", ""MC"", ""NSM"", ""PLM"", ""URB""]",
-mgl-1,,glutamate,,1,0,1,0,0,1,"[""AIA"", ""AIY"", ""RMDV"", ""RMDD"", ""NSM""]",
-mgl-2,,glutamate,,1,0,1,0,0,1,,
-mgl-3,,glutamate,,1,0,1,0,0,1,"[""NSM"", ""ADF"", ""ASE"", ""AWC"", ""RIB"", ""RIC"", ""BAG""]",
-nmr-1,,glutamate,,1,1,0,0,0,0,"[""AVA"", ""AVD"", ""AVE"", ""AVG"", ""PVC"", ""RIM""]","[""oocytes"", ""sheath_cells""]"
-nmr-2,,glutamate,,1,1,0,0,0,0,"[""AVA"", ""AVD"", ""AVE"", ""AVG"", ""PVC"", ""RIM""]",
-stg-1,,glutamate,,0,0,0,0,0,0,"[""AVD"", ""AVE"", ""AVG"", ""PVC"", ""RIM""]",
-stg-2,,glutamate,,0,0,0,0,0,0,"[""AVA"", ""AVD"", ""AVE"", ""AVG"", ""PVC"", ""RIM""]",
-lgc-34,,glycine,,1,1,0,0,0,0,,
+acc-1,,acetylcholine,,1.0,1,0,0,0,0,,
+acc-2,,acetylcholine,,1.0,1,0,0,0,0,,
+acc-3,,acetylcholine,,1.0,1,0,0,0,0,,
+acc-4,,acetylcholine,,1.0,1,0,0,0,0,,
+acr-1,,acetylcholine,,1.0,1,0,0,1,0,,"[""body_wall_muscle""]"
+acr-10,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-11,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-12,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-13,,acetylcholine,,1.0,1,0,0,1,0,"[""PVT"", ""ALA"", ""DD"", ""IL"", ""OL""]","[""body_wall_muscle"", ""uterine_muscle"", ""anal_depressor_muscle""]"
+acr-14,,acetylcholine,,1.0,1,0,0,1,0,"[""AIY"", ""AS"", ""DA"", ""DB"", ""DD"", ""HSN"", ""VB"", ""VC4"", ""VC5""]","[""body_wall_muscle"", ""intestine""]"
+acr-15,,acetylcholine,,1.0,1,0,0,1,0,"[""AVA"", ""AVB"", ""DVA"", ""I5"", ""RID"", ""RIM"", ""PVQ"", ""SAA"", ""SIA"", ""SIB"", ""SMB"", ""SMD""]","[""head_muscle"", ""body_wall_muscle""]"
+acr-16,,acetylcholine,,1.0,1,0,0,1,0,"[""AVA"", ""RIB"", ""RID"", ""SIB"", ""SMD"", ""CEP"", ""ADE"", ""DB""]","[""anal_depressor_muscle"", ""head_muscle"", ""body_wall_muscle""]"
+acr-17,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-18,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-19,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-2,,acetylcholine,,1.0,1,0,0,1,0,"[""DA"", ""DB"", ""IL1"", ""PVQ"", ""RMD"", ""VA"", ""VB""]",
+acr-20,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-21,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-22,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-23,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-24,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-25,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-3,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-4,,acetylcholine,,1.0,1,0,0,1,0,"[""IL2"", ""ALM"", ""AVM"", ""PLM"", ""AVG"", ""PVD"", ""PVC"", ""FLP"", ""ALA""]","[""head_muscle""]"
+acr-5,,acetylcholine,,1.0,1,0,0,1,0,"[""DB"", ""VB""]",
+acr-6,,acetylcholine,,1.0,1,0,0,1,0,,
+acr-7,,acetylcholine,,1.0,1,0,0,1,0,,"[""pharyngeal_muscle""]"
+acr-8,,acetylcholine,,1.0,1,0,0,1,0,,"[""body_wall_muscle"", ""anal_muscle"", ""vulval_muscle""]"
+acr-9,,acetylcholine,,2.0,2,1,1,2,1,,
+cup-4,,acetylcholine,,0.0,1,0,0,1,0,,"[""coelomocytes""]"
+deg-3,,acetylcholine,,1.0,1,0,0,1,0,"[""IL2"", ""ALM"", ""AVM"", ""PLM"", ""AVG"", ""PVD"", ""PVC"", ""FLP""]","[""head_muscle""]"
+eat-2,,acetylcholine,,1.0,1,0,0,1,0,"[""MC""]","[""pharyngeal_muscle""]"
+gar-1,"[""GAR-1A"", ""GAR-1B"", ""GAR-1C""]",acetylcholine,,1.0,0,1,1,0,0,"[""PVM""]",
+gar-2,,acetylcholine,,1.0,0,1,1,0,0,"[""AIY"", ""HSN""]",
+gar-3,,acetylcholine,,1.0,0,1,1,0,0,"[""I3"", ""VD"", ""DD"", ""SPC"", ""PCB"", ""PCA""]","[""pharyngeal_muscle"", ""anal_depressor_muscle"", ""body_wall_muscle"", ""spicule_protractor_muscle""]"
+lgc-31,,acetylcholine,,0.0,1,0,0,1,0,,
+lgc-46,,acetylcholine,,0.0,1,0,0,0,0,,
+lgc-47,,acetylcholine,,0.0,1,0,0,0,0,,
+lgc-48,,acetylcholine,,0.0,1,0,0,0,0,,
+lgc-49,,acetylcholine,,0.0,1,0,0,0,0,,
+unc-29,,acetylcholine,,1.0,1,0,0,1,0,,"[""body_wall_muscle""]"
+unc-38,,acetylcholine,,1.0,1,0,0,1,0,,"[""body_wall_muscle"", ""vulval_muscle"", ""sex_muscle"", ""protractor_muscle""]"
+unc-63,,acetylcholine,,1.0,1,0,0,1,0,"[""AS"", ""DA"", ""DB"", ""VB"", ""VD"", ""VC""]","[""body_wall_muscle"", ""vulval_muscle""]"
+dop-1,"[""DOP-1A"", ""DOP-1B"", ""DOP-1C""]",dopamine,,1.0,0,1,0,0,0,"[""ALM"", ""ALN"", ""AUA"", ""AVM"", ""PHC"", ""PLM"", ""PLN"", ""PVQ"", ""PVD"", ""RIB"", ""RIM"", ""RIS""]","[""excretory_gland"", ""head_muscle""]"
+dop-2,,dopamine,,1.0,0,1,0,0,0,"[""ADE"", ""CEP"", ""PDA"", ""PDE"", ""RIA"", ""RID"", ""SIA"", ""SIB""]",
+dop-3,,dopamine,,1.0,0,1,0,0,0,"[""ASE"", ""PVD"", ""RIC"", ""SIA""]","[""body_wall_muscle""]"
+dop-4,,dopamine,,1.0,0,1,0,0,0,"[""ASG"", ""AVL"", ""CAN"", ""I1"", ""I2"", ""PQR"", ""ASH""]","[""vulval_cells"", ""intestine"", ""rectal_gland"", ""rectal_epithelium""]"
+dop-5,,dopamine,,0.5,0,1,0,0,0,"[""ASE""]",
+dop-6,,dopamine,,1.0,0,1,0,0,0,,
+exp-1,,gaba,,1.0,1,0,0,0,0,"[""ADE"", ""PDA"", ""RID"", ""SABD""]","[""intestinal_muscle"", ""anal_depressor_muscle""]"
+gab-1,,gaba,,1.0,1,0,0,0,0,"[""ALM"", ""AVM"", ""PLM""]",
+gbb-1,,gaba,,1.0,0,1,0,0,1,,
+gbb-2,,gaba,,1.0,0,1,0,0,1,,
+ggr-1,,gaba,,1.0,1,0,0,0,0,"[""AIB"", ""AVH"", ""PVR"", ""PVQ"", ""SMDV""]","[""egg_laying_muscle""]"
+ggr-2,,gaba,,1.0,1,0,0,0,0,"[""CAN"", ""DD"", ""HSN"", ""SIAV"", ""SMDV"", ""SMDD""]","[""egg_laying_muscle""]"
+ggr-3,,gaba,,1.0,1,0,0,0,0,"[""AVA"", ""AVB"", ""DVA"", ""SIAD"", ""SMDD""]",
+lgc-35,,gaba,,1.0,1,0,0,0,0,,
+lgc-36,,gaba,,0.0,1,0,0,0,0,,
+lgc-37,,gaba,,0.0,1,0,0,0,0,,
+lgc-38,,gaba,,1.0,1,0,0,0,0,"[""AIY""]",
+lgc-39,,gaba,,0.0,1,0,0,0,0,,
+lgc-40,,gaba,,0.0,1,0,0,0,0,,
+lgc-41,,gaba,,0.0,1,0,0,0,0,,
+lgc-42,,gaba,,0.0,1,0,0,0,0,,
+lgc-51,,gaba,,0.0,1,0,0,0,0,,
+lgc-52,,gaba,,0.0,1,0,0,0,0,,
+lgc-53,,gaba,,0.0,1,0,0,0,0,,
+lgc-54,,gaba,,0.0,1,0,0,0,0,,
+unc-49,"[""UNC-49A"", ""UNC-49B"", ""UNC-49C""]",gaba,,1.0,1,0,0,0,0,,"[""body_wall_muscle"", ""anal_sphincter_muscle""]"
+avr-14,,glutamate,,1.0,1,0,0,0,0,,
+avr-15,,glutamate,,1.0,1,0,0,0,0,"[""RMED"", ""RMEV"", ""RMG"", ""DA9"", ""VA12"", ""M3""]","[""pharyngeal_muscle""]"
+glc-1,,glutamate,,1.0,1,0,0,0,0,,
+glc-2,,glutamate,,1.0,1,0,0,0,0,,"[""pharyngeal_muscle""]"
+glc-3,,glutamate,,1.0,1,0,0,0,0,"[""AIY"", ""AWC"", ""AIA""]",
+glc-4,,glutamate,,1.0,1,0,0,0,0,,
+glr-1,,glutamate,,1.0,1,0,0,0,0,"[""AVA"", ""AVB"", ""AVD"", ""AVE"", ""PVC"", ""AIB"", ""AVG"", ""PVQ"", ""RMD"", ""RIM"", ""SMD"", ""URY""]",
+glr-2,,glutamate,,1.0,1,0,0,0,0,"[""AVA"", ""AVD"", ""AVE"", ""PVC"", ""AIA"", ""AIB"", ""AVG"", ""DVA"", ""M1"", ""RIA"", ""RIG"", ""RIR"", ""RMDV"", ""RMDD""]",
+glr-3,,glutamate,,1.0,1,0,0,0,0,"[""RIA""]",
+glr-4,,glutamate,,1.0,1,0,0,0,0,"[""AUA"", ""AVA"", ""AVH"", ""DVA"", ""DB"", ""FLP"", ""PVD"", ""PVU"", ""RIB"", ""RIF"", ""RIM"", ""RMD"", ""RMG"", ""SAA"", ""SAB"", ""SIB"", ""SMD"", ""URA"", ""URY""]",
+glr-5,,glutamate,,1.0,1,0,0,0,0,"[""AIB"", ""AVA"", ""AVB"", ""AVD"", ""AVE"", ""AVK"", ""DVA"", ""HSN"", ""LUA"", ""PVC"", ""PVQ"", ""RIM"", ""RIC"", ""RIF"", ""RME"", ""RMD"", ""RMG"", ""SABVL"", ""SABVR"", ""SABD"", ""SIB"", ""SMD"", ""URA"", ""URB"", ""URY"", ""VC""]",
+glr-6,,glutamate,,1.0,1,0,0,0,0,"[""RIA""]",
+glr-7,,glutamate,,1.0,1,0,0,0,0,"[""I1"", ""I2"", ""I3"", ""I6"", ""MI"", ""NSM""]",
+glr-8,,glutamate,,1.0,1,0,0,0,0,"[""ALM"", ""BDU"", ""I1"", ""I2"", ""I3"", ""I6"", ""MI"", ""M3"", ""M4"", ""M5"", ""MC"", ""NSM"", ""PLM"", ""URB""]",
+mgl-1,,glutamate,,1.0,0,1,0,0,1,"[""AIA"", ""AIY"", ""RMDV"", ""RMDD"", ""NSM""]",
+mgl-2,,glutamate,,1.0,0,1,0,0,1,,
+mgl-3,,glutamate,,1.0,0,1,0,0,1,"[""NSM"", ""ADF"", ""ASE"", ""AWC"", ""RIB"", ""RIC"", ""BAG""]",
+nmr-1,,glutamate,,1.0,1,0,0,0,0,"[""AVA"", ""AVD"", ""AVE"", ""AVG"", ""PVC"", ""RIM""]","[""oocytes"", ""sheath_cells""]"
+nmr-2,,glutamate,,1.0,1,0,0,0,0,"[""AVA"", ""AVD"", ""AVE"", ""AVG"", ""PVC"", ""RIM""]",
+stg-1,,glutamate,,0.0,0,0,0,0,0,"[""AVD"", ""AVE"", ""AVG"", ""PVC"", ""RIM""]",
+stg-2,,glutamate,,0.0,0,0,0,0,0,"[""AVA"", ""AVD"", ""AVE"", ""AVG"", ""PVC"", ""RIM""]",
+lgc-34,,glycine,,1.0,1,0,0,0,0,,
+octr-1,,octopamine,,1.0,0,1,0,0,0,"[""ASH"", ""ASI""]",
+ser-3,,octopamine,,0.5,0,1,0,0,0,"[""SIA"", ""ASH"", ""PHA"", ""PHB"", ""PVQ""]","[""pharynx"", ""head_muscle"", ""phasmid_socket"", ""intestine"", ""spermatheca"", ""eggs"", ""gonad"", ""vulva""]"
+ser-6,,octopamine,,1.0,0,1,0,0,0,"[""AWB"", ""ADL"", ""ASI""]","[""intestine""]"
+tyra-3,,octopamine,,1.0,0,1,0,0,0,"[""CEP"", ""ADE""]","[""vulva""]"
+dop-5,,serotonin,,0.5,0,1,0,0,0,"[""ASE""]",
+lgc-50,,serotonin,,1.0,1,0,0,0,0,,
+mod-1,"[""MOD-1A"", ""MOD-1B"", ""MOD-1C""]",serotonin,,1.0,1,0,0,0,0,"[""AIA"", ""AIB"", ""AIY"", ""AIZ"", ""RIC"", ""RID"", ""RIM""]",
+ser-1,"[""SER-1A"", ""SER-1B""]",serotonin,,1.0,0,1,0,0,1,"[""RIA"", ""RIC"", ""URY"", ""PVT"", ""PVQ""]","[""pharyngeal_muscle"", ""vulval_muscle"", ""uterine_cells"", ""intestine"", ""diagonal_muscle""]"
+ser-3,,serotonin,,0.5,0,1,0,0,0,"[""SIA"", ""ASH"", ""PHA"", ""PHB"", ""PVQ""]","[""pharynx"", ""head_muscle"", ""phasmid_socket"", ""intestine"", ""spermatheca"", ""eggs"", ""gonad"", ""vulva""]"
+ser-4,,serotonin,,1.0,0,1,0,0,1,"[""RIB"", ""RIS"", ""PVT"", ""DVA"", ""DVC""]",
+ser-5,,serotonin,,1.0,0,1,0,0,1,"[""ASH"", ""AWB""]","[""vulval_muscle"", ""body_wall_muscle"", ""intestine""]"
+ser-7,,serotonin,,1.0,0,1,0,0,0,"[""I2"", ""I3"", ""I4"", ""I6"", ""M2"", ""M3"", ""M4"", ""M5"", ""MC""]","[""vulval_muscle"", ""intestine""]"
+lgc-55,,tyramine,,0.5,1,0,0,0,0,"[""ALN"", ""AVB"", ""HSN"", ""IL1D"", ""IL1V"", ""RMD"", ""SMDD"", ""SMDV"", ""SDQ""]","[""neck_muscle"", ""tail_muscle""]"
+ser-2,"[""SER-2A"", ""SER-2B"", ""SER-2D""]",tyramine,,1.0,0,1,0,0,0,"[""AIY"", ""ALN"", ""AUA"", ""AVH"", ""CAN"", ""DA9"", ""LUA"", ""NSM"", ""PVC"", ""RIA"", ""RIC"", ""RID"", ""SABD"", ""SABV"", ""SDQ"", ""AIZ"", ""BDU"", ""DVA"", ""PVT"", ""RME"", ""SIAD"", ""SIAV"", ""OLL"", ""PVD"", ""PDA""]","[""head_muscle"", ""diagonal_muscle"", ""excretory_gland""]"
+tyra-2,,tyramine,,1.0,0,1,0,0,0,"[""MC"", ""NSM"", ""ASE"", ""ASG"", ""ASH"", ""ASI"", ""PVD"", ""CAN"", ""ALM""]",
+tyra-3,,tyramine,,1.0,0,1,0,0,0,"[""CEP"", ""ADE""]","[""vulva""]"
