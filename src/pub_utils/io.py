@@ -211,14 +211,22 @@ def standardize_dataframe(df, neuron_order, mapping_df='default', verbose=True):
         plot_df.index = new_index
         plot_df.columns = new_columns
 
-    # Track missing neurons before reindex
+    # Track missing and extra neurons before reindex
     if verbose:
         current_neurons = set(plot_df.index)
+        target_neurons = set(neuron_order)
+
         missing_neurons = [n for n in neuron_order if n not in current_neurons]
         if missing_neurons:
             print(f"Filling {len(missing_neurons)} missing neuronIDs with NaN:")
             for neuron_id in missing_neurons:
                 print(f"  {neuron_id} (not found)")
+
+        extra_neurons = [n for n in plot_df.index if n not in target_neurons]
+        if extra_neurons:
+            print(f"Warning: Dropping {len(extra_neurons)} neuronIDs not in target list:")
+            for neuron_id in extra_neurons:
+                print(f"  {neuron_id} (dropped)")
 
     std_df = plot_df.reindex(index=neuron_order, columns=neuron_order)
 

@@ -3,15 +3,44 @@ data/RipollSanchez2023/neuroanatomy.csv
 
 
 structural - electrical_synapse_preassembled_connectome:
-
+electrical_Cook2019.csv
+electrical_Cook2019Male.csv
+electrical_Cook2020.csv
+electrical_Vershney2011.csv
+electrical_WhiteA.csv
+electrical_WhiteL4.csv
+electrical_WhiteWhole.csv
+electrical_WitvlietA_07.csv
+electrical_WitvlietA_08.csv
+electrical_WitvlietL1_01.csv
+electrical_WitvlietL1_02.csv
+electrical_WitvlietL1_03.csv
+electrical_WitvlietL1_04.csv
+electrical_WitvlietL2_05.csv
+electrical_WitvlietL3_06.csv
 
 
 structural - chemical_synapse_preassembled_connectome:
-
+chemical_Cook2019.csv
+chemical_Cook2019Male.csv
+chemical_Cook2020.csv
+chemical_Vershney2011.csv
+chemical_WhiteA.csv
+chemical_WhiteL4.csv
+chemical_WhiteWhole.csv
+chemical_WitvlietA_07.csv
+chemical_WitvlietA_08.csv
+chemical_WitvlietL1_01.csv
+chemical_WitvlietL1_02.csv
+chemical_WitvlietL1_03.csv
+chemical_WitvlietL1_04.csv
+chemical_WitvlietL2_05.csv
+chemical_WitvlietL3_06.csv
+chemical_Yim2024.csv
 
 
 molecular - innexin_expression:
-
+(pending, ignore for now)
 
 
 molecular - gene_info:
@@ -59,7 +88,10 @@ data/RipollSanchez2023/NPP_receptor_info.csv
 
 molecular - neurotransmitter_preassembled_connectome:
 connectomes/preassembled/monoamine_RipollSanchez2023.csv
-
+connectomes/preassembled/dopamine_Bentley2016.csv
+connectomes/preassembled/serotonin_Bentley2016.csv
+connectomes/preassembled/tyramine_Bentley2016.csv
+connectomes/preassembled/octopamine_Bentley2016.csv
 
 molecular - neuropepeptide_preassembled_connectome:
 connectomes/preassembled/NPP_RipollSanchez2023_shortRange.csv

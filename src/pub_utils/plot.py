@@ -2,11 +2,36 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 import numpy as np
 import seaborn as sns
+from .constants import AllHermNeurons, AllHermNeuronBlocks
 
-def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_label='# Unique Ligand-Receptor Pairs'):
-   
+def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_label='# Unique Ligand-Receptor Pairs', colormap_thresh=None, show_blocks=True):
+    """
+    Plot a connectome matrix as a heatmap.
+
+    Args:
+        plot_df: DataFrame with connectome data
+        title: Plot title
+        colormap_name: Name of matplotlib colormap to use
+        colorbar_label: Label for the colorbar
+        colormap_thresh: If max value exceeds this threshold, use 97th percentile as colormap max
+        show_blocks: If True and neuron order matches AllHermNeurons, show block dividers and labels
+    """
     # Determine max value and create adaptive colormap from continuous colormap
-    max_val = int(plot_df.max().max())
+    actual_max = int(plot_df.max().max())
+
+    # Check if we need to clip the colormap
+    if colormap_thresh is not None and actual_max > colormap_thresh:
+        # Compute 90th percentile of non-zero values
+        values = plot_df.values.flatten()
+        values = values[~np.isnan(values)]
+        values = values[values > 0]
+        max_val = int(np.percentile(values, 97))
+        print(f"Actual max value: {actual_max}, using 97th percentile ({max_val}) as colormap max")
+        colormap_clipped = True
+    else:
+        max_val = actual_max
+        colormap_clipped = False
+
     num_colors = max_val + 1  # Include 0
     
     # Get the base colormap
@@ -29,11 +54,19 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_labe
     # --------------------------------------------
 
     bounds = list(range(max_val + 2))  # [0, 1, 2, ..., max_val+1]
-    norm = mcolors.BoundaryNorm(bounds, cmap.N)
+    norm = mcolors.BoundaryNorm(bounds, cmap.N, clip=True)
+
+    # Clip data to max_val if colormap is clipped (so values > max_val render as max color)
+    if colormap_clipped:
+        plot_df = plot_df.clip(upper=max_val)
     
     # Create tick positions and labels for colorbar
     tick_positions = [i + 0.5 for i in range(max_val + 1)]
     tick_labels = [str(i) for i in range(max_val + 1)]
+
+    # If colormap was clipped, indicate that top value is "X to Y"
+    if colormap_clipped:
+        tick_labels[-1] = f"{max_val} to {actual_max}"
 
     # 4. Plotting
     fig, ax = plt.subplots(figsize=(20, 22))
@@ -49,7 +82,7 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_labe
         cbar=True,
         cbar_kws={
             'orientation': 'horizontal',
-            'shrink': 0.3,
+            'shrink': 0.4,
             'pad': 0.05,
             'ticks': tick_positions
         },
@@ -70,15 +103,42 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_labe
     cbar.set_ticklabels(tick_labels)
     
     # Make colorbar label larger and bolded
-    cbar.set_label(colorbar_label, size=16, weight='bold', labelpad=5)
+    cbar.set_label(colorbar_label, size=20, weight='bold', labelpad=5)
     
     # Titles and Labels
-    plt.title(title, fontsize=20, pad=10, fontweight='bold')
+    plt.title(title, fontsize=30, pad=36, fontweight='bold')
     plt.xticks(rotation=90, fontsize=5)
     plt.yticks(rotation=0, fontsize=5)
-    plt.xlabel(f'{len(plot_df.columns)} Recipient Neurons', fontsize=16, fontweight='bold')
-    plt.ylabel(f'{len(plot_df.index)} Source Neurons', fontsize=16, fontweight='bold')
-    
+    plt.xlabel(f'{len(plot_df.columns)} Recipient Neurons', fontsize=20, fontweight='bold')
+    plt.ylabel(f'{len(plot_df.index)} Source Neurons', fontsize=20, fontweight='bold')
+
+    # Check if neuron order matches AllHermNeurons and add block dividers/labels
+    neuron_order = list(plot_df.index)
+    if show_blocks and neuron_order == AllHermNeurons:
+        n_neurons = len(neuron_order)
+
+        # Draw white lines at block boundaries
+        for block_name, start_idx, end_idx in AllHermNeuronBlocks[:-1]:  # Skip last block (no line after it)
+            boundary = end_idx + 1  # Line after the last neuron of this block
+            # Horizontal line (for rows/source neurons)
+            ax.axhline(y=boundary, color='white', linewidth=2, zorder=10)
+            # Vertical line (for columns/recipient neurons)
+            ax.axvline(x=boundary, color='white', linewidth=2, zorder=10)
+
+        # Add block labels on the sides
+        for block_name, start_idx, end_idx in AllHermNeuronBlocks:
+            mid_idx = (start_idx + end_idx) / 2 + 0.5  # Center of the block
+
+            # Label on the right side (for rows)
+            ax.text(n_neurons + 1, mid_idx, block_name,
+                    va='center', ha='left', fontsize=20, fontweight='bold',
+                    rotation=270)
+
+            # Label on the top (for columns)
+            ax.text(mid_idx, -1, block_name,
+                    va='bottom', ha='center', fontsize=20, fontweight='bold',
+                    rotation=0)
+
     plt.tight_layout()
     plt.show()
     

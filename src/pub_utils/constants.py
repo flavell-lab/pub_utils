@@ -74,3 +74,21 @@ AllMaleNeurons = SexSharedNeurons + MaleSpecificNeurons
 
 assert len(AllHermNeurons) == 302, f"Expected 302 hermaphrodite neurons, got {len(AllHermNeurons)}"
 assert len(AllMaleNeurons) == 385, f"Expected 385 male neurons, got {len(AllMaleNeurons)}"
+
+# Block definitions for AllHermNeurons visualization
+# Each block is defined by (name, start_index, end_index) where indices are inclusive
+# Note: CANL/CANR (unknown cellType) and IL1 neurons (motor) are grouped with interneurons
+AllHermNeuronBlocks = [
+    ('Pharyngeal', 0, 19),           # I1L to NSMR (20 neurons)
+    ('Sensory', 20, 98),             # ADFL to DVA (79 neurons)
+    ('Interneuron', 99, 186),        # AUAL to IL1VR (88 neurons, includes CANL/CANR and IL1)
+    ('Motor - anterior', 187, 222),  # SIADL to URAVR (36 neurons)
+    ('Motor - VC', 223, 301),        # DA01 to VC06 (79 neurons, ventral cord & posterior)
+]
+
+# Validate block definitions
+assert AllHermNeuronBlocks[0][1] == 0, "First block should start at index 0"
+assert AllHermNeuronBlocks[-1][2] == len(AllHermNeurons) - 1, "Last block should end at last neuron"
+for i in range(len(AllHermNeuronBlocks) - 1):
+    assert AllHermNeuronBlocks[i][2] + 1 == AllHermNeuronBlocks[i+1][1], \
+        f"Blocks should be contiguous: {AllHermNeuronBlocks[i]} and {AllHermNeuronBlocks[i+1]}"
