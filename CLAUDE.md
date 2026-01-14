@@ -47,3 +47,11 @@ The `pub_utils` package (`src/pub_utils/`) exports:
 ## Data Sources
 
 Primary datasets from RipollSanchez2023 (neuropeptide connectomes), Wang2024/Hobert lab (neurotransmitter atlas), and OpenWorm Connectome Toolbox (structural connectomes). See README.md for full citation details.
+
+## Claude Code Session Guidelines
+
+1. **Daily logging**: Keep track of output files and the logic behind their creation. Save logs under `claudecode/yyyy-mm-dd.py` (e.g., `claudecode/2026-01-14.py`).
+
+2. **Ask, don't guess**: When requirements are ambiguous, ask the user for clarification rather than interpolating or guessing.
+
+3. **Token efficiency**: Use simple queries for easy tasks to save tokens. Avoid over-exploring when the task is straightforward.
