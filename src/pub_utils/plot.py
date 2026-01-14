@@ -13,7 +13,7 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_labe
         title: Plot title
         colormap_name: Name of matplotlib colormap to use
         colorbar_label: Label for the colorbar
-        colormap_thresh: If max value exceeds this threshold, use 97th percentile as colormap max
+        colormap_thresh: If max value exceeds this threshold, use 99th percentile as colormap max
         show_blocks: If True and neuron order matches AllHermNeurons, show block dividers and labels
     """
     # Determine max value and create adaptive colormap from continuous colormap
@@ -25,8 +25,8 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_labe
         values = plot_df.values.flatten()
         values = values[~np.isnan(values)]
         values = values[values > 0]
-        max_val = int(np.percentile(values, 97))
-        print(f"Actual max value: {actual_max}, using 97th percentile ({max_val}) as colormap max")
+        max_val = int(np.percentile(values, 99))
+        print(f"Actual max value: {actual_max}, using 99th percentile ({max_val}) as colormap max")
         colormap_clipped = True
     else:
         max_val = actual_max
@@ -50,7 +50,7 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_labe
     cmap = mcolors.ListedColormap(colors)
     
     # --- Modification: Set NaN values to grey ---
-    cmap.set_bad("grey") 
+    cmap.set_bad("0.3") 
     # --------------------------------------------
 
     bounds = list(range(max_val + 2))  # [0, 1, 2, ..., max_val+1]
@@ -74,7 +74,8 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_labe
     # Set aspect ratio to 1
     ax.set_aspect('equal')
 
-    sns.heatmap(
+    # Assign the heatmap to a variable (hm) to capture the plot object
+    hm = sns.heatmap(
         plot_df, 
         fmt="", 
         cmap=cmap,
@@ -88,10 +89,18 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_labe
         },
         xticklabels=True, 
         yticklabels=True,
-        linewidths=0.05,  # Thinner gridlines
-        linecolor=(0.5, 0.5, 0.5, 0.2),  # Grey with transparency (RGBA)
+        linewidths=0.05,
+        linecolor=(0.5, 0.5, 0.5, 0.2),
         ax=ax
     )
+
+    # Access the colorbar and apply rotation if the flag is True
+    if colormap_clipped:
+        # Access the colorbar from the plot's collections
+        cbar = hm.collections[0].colorbar
+        
+        # Rotate ticks (since orientation is horizontal, these are x-axis ticks)
+        cbar.ax.tick_params(axis='x', rotation=90)
     
     # --- Customizations ---
     # Colorbar modifications (Boxed and Bold Label)
@@ -106,7 +115,7 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_labe
     cbar.set_label(colorbar_label, size=20, weight='bold', labelpad=5)
     
     # Titles and Labels
-    plt.title(title, fontsize=30, pad=36, fontweight='bold')
+    plt.title(title, fontsize=32, pad=48, fontweight='bold')
     plt.xticks(rotation=90, fontsize=5)
     plt.yticks(rotation=0, fontsize=5)
     plt.xlabel(f'{len(plot_df.columns)} Recipient Neurons', fontsize=20, fontweight='bold')
