@@ -58,7 +58,9 @@ Primary datasets from RipollSanchez2023 (neuropeptide connectomes), Wang2024/Hob
 
 4. **Clear documentation**: The logic behind the data ETL and connectome assembly needs to be extremely clearly documented for future contributors to reproduce the outputs.
 
-5. **Continuity between sessions**: At the beginning of each claude session, load in the last log file from `claudecode` so that you know where to pick up from. 
+5. **Continuity between sessions**: At the beginning of each claude session, load in the last log file from `claudecode` so that you know where to pick up from.
+
+6. **Error handling**: Minimize try/except patterns in `src/` functions. If a try block is necessary, emit a `warnings.warn()` message on failure rather than silently continuing. This ensures users are aware when something unexpected happens.
 
 ## Molecular Connectome Assembly Plan
 

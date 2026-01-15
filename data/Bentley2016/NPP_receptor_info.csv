@@ -1,4 +1,4 @@
-neuropeptide,receptor,group,EC50,reference
+ligand,receptor,group,EC50,reference
 flp-18,npr-1,NPY(npr)/ RFamide receptor group,~100 nM,54
 flp-21,npr-1,NPY(npr)/ RFamide receptor group,2.5 nM,55
 flp-21,npr-2,NPY(npr)/ RFamide receptor group,34.4 nM,56

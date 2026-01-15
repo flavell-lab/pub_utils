@@ -1,4 +1,4 @@
-GPCR receptor,Neuropeptide ligand,EC50,Self loops,Network Connections,Unnamed: 5,Network Topology,Unnamed: 7,Neuropeptide family,GPCR type,GPCR class,Behavioural data,Unnamed: 12,Unnamed: 13,Unnamed: 14
+receptor,ligand,EC50,Self loops,Network Connections,Unnamed: 5,Network Topology,Unnamed: 7,Neuropeptide family,GPCR type,GPCR class,Behavioural data,Unnamed: 12,Unnamed: 13,Unnamed: 14
 ,,,,Mid-Range,Short-Range,Mid-Range,Short-Range,,,,,,,
 AEX-2,NLP-40,8.322e-09,1.0,75,183,local,local,NLP,No Promiscuous,A                 (rhodopsin like),A                 (rhodopsin like),,,
 CKR-1,NLP-12,1.905e-09,0.0,9,147,broadcaster,local,NLP,No Promiscuous,A                                                          (rhodopsin like),A                                                          (rhodopsin like),,,

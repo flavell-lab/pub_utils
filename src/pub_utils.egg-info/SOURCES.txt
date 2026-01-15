@@ -1,6 +1,9 @@
+LICENSE
 README.md
 pyproject.toml
 src/pub_utils/__init__.py
+src/pub_utils/assemble.py
+src/pub_utils/constants.py
 src/pub_utils/core.py
 src/pub_utils/io.py
 src/pub_utils/plot.py
