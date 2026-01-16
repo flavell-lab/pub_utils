@@ -47,13 +47,12 @@ class NeuronFeatures:
             'process': self.process_cols
         }
         
-        # Extract data
+        # Extract data (preserve input order)
         self.neuron_ids = df['neuronID'].tolist()
-        self.neuron_ids.sort()  # Sort alphabetically
-        
+
         # Create feature matrix (neurons x features)
         heatmap_data = df.set_index('neuronID')[self.feature_names].fillna(0)
-        heatmap_data = heatmap_data.sort_index()
+        heatmap_data = heatmap_data.loc[self.neuron_ids]
         self.feature_matrix = heatmap_data.values.astype(np.float32)
         
         # Create lookup dictionaries for fast access
