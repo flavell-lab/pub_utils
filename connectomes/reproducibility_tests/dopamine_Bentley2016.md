@@ -10,7 +10,7 @@ Validate that `assemble_nt_connectome()` produces results consistent with the pr
 ## Data Sources
 
 ### Preassembled (reference)
-- **File**: `connectomes/preassembled/dopamine_Bentley2016.csv`
+- **File**: `connectomes/preassembled/molecular/dopamine_Bentley2016.csv`
 - **Origin**: OpenWorm Connectome Toolbox (`cect.WormNeuroAtlasMAReader`)
 - **Connections**: 1160
 

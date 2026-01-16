@@ -9,7 +9,7 @@ Verify that `assemble_npp_connectome()` reproduces the preassembled FLP-1/DMSR-7
 
 ## Reference File
 
-- `connectomes/preassembled/FLP-1_DMSR-7_RipollSanchez2023_longRange.csv`
+- `connectomes/preassembled/molecular/FLP-1_DMSR-7_RipollSanchez2023_longRange.csv`
 
 ## Test Procedure
 

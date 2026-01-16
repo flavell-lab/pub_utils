@@ -10,7 +10,7 @@ Validate that `assemble_npp_connectome()` produces results consistent with the p
 ## Data Sources
 
 ### Preassembled (reference)
-- **Files**: `connectomes/preassembled/NPP_RipollSanchez2023_{shortRange,midRange,longRange}.csv`
+- **Files**: `connectomes/preassembled/molecular/NPP_RipollSanchez2023_{shortRange,midRange,longRange}.csv`
 - **Origin**: OpenWorm Connectome Toolbox (`cect.RipollSanchezShortRangeReader`, etc.)
 
 | Range | Sum | Non-zero entries |

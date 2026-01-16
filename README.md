@@ -1,28 +1,65 @@
+## Project Overview
+
+This repository provides utilities for extracting, transforming, and loading publicly available C. elegans neuroscience datasets.
+
+## Installation (uv)
+
+```bash
+git clone https://github.com/flavell-lab/pub_utils.git
+cd pub_utils
+uv sync
+```
+The package requires Python >= 3.10. Dependencies are managed in `pyproject.toml`.
+
+## Package Architecture
+
+The `pub_utils` package (`src/pub_utils/`) exports:
+
+- **`NeuronFeatures`** (`core.py`): Stores neuroanatomical features as a matrix (neurons x features). Features are categorized into `cellType`, `sensoryType`, `segment`, and `process`. Provides fast lookup by neuron ID or feature name.
+
+- **`NeuronInteraction`** (`core.py`): Square adjacency matrix wrapper for connectome data. Handles source→recipient relationships, reciprocal pairs detection, BFS shortest path, and degree analysis. Matrix values represent connection strength (e.g., number of unique ligand-receptor pairs).
+
+- **`plot_connectome_matrix`** / **`plot_reciprocal_network`** (`plot.py`): Visualization functions using seaborn heatmaps and networkx graphs with discrete colormaps.
+
+And many other useful functionality -- see `src/pub_utils/__init__.py` for the full list of features.
+
 ## Assets Tree
 
+- **Gene Info**: `data/HobertLab/NT_uptake_synthesis_release_gene_info.csv` - maps functional categories (uptake, synthesis, release) to gene names for each NT
+- **Pairing Info**: `data/Altun2013/NT_receptor_info.csv` - maps receptors to ligands with confidence scores and receptor type flags (ionotropic/metabotropic)
+- **Release Data**: neuron × gene matrices (binary) from literature, reporter, staining methods
+- **Receptor Data**: neuron × receptor matrices (binary) from sequencing, reporter, literature methods
+
+File paths in `assets.json`
 ```
 assets
 ├── neuron_features
-│   └── neuroanatomy
 │
-├── structural_connectomes
-│   └── preassembled
-│       ├── electrical_synapse    [14 sources]
-│       └── chemical_synapse      [16 sources]
-│
-├── molecular_connectomes
-│   ├── preassembled
-│   │   ├── neuropeptide          [3 sources]
-│   │   └── monoamine             [5 sources]
+├── connectomes
+│   ├── preassembled/
+│   │   ├── structural/           (accessed through OpenWorm)
+│   │   │   ├── chemical
+│   │   │   └── electrical
+│   │   └── molecular/            (from Bentley2016 and RipollSanchez2023)
 │   │
-│   └── candy_assembly (customized logic)
-│       ├── neuropeptide
-│       ├── classical neurotransmitters
-│       └── monoamine
-│
+│   ├── candy_assembly/           (customized logic, all are molecular)
+│   │   ├── dopamine/         
+│   │   ├── serotonin/
+│   │   ├── tyramine/
+│   │   ├── octopamine/
+│   │   ├── acetylcholine/
+│   │   ├── gaba/
+│   │   ├── glutamate/
+│   │   ├── individual_neuropeptides/
+│   │   ├── aggregated_neuropeptides/
+│   │   ├── aggregated_synapticNT/
+│   │   └── aggregated_extrasynapticNT/
+│   │
+│   └── reproducibility_tests/    (validation reports on molecular assembly from claude code)
+│             
 ├── pairing_info
 │   ├── neurotransmitter
-│   └── neuropeptide              [3 sources]
+│   └── neuropeptide             
 │
 ├── release
 │   ├── neurotransmitter
@@ -38,12 +75,13 @@ assets
     ├── neurotransmitter
     │   ├── acetylcholine
     │   │   ├── sequencing
-    │   │   └── reporter
+    │   │   └── reporter          (metabotropic only)
+    │   ├── glutamate
+    │   │   ├── sequencing
+    │   │   └── reporter          (metabotropic only)
     │   ├── gaba
     │   │   ├── sequencing
     │   │   └── reporter
-    │   ├── glutamate
-    │   │   └── sequencing
     │   ├── dopamine
     │   │   ├── reporter
     │   │   └── sequencing
@@ -60,13 +98,13 @@ assets
         ├── literature
         └── sequencing
 ```
+Note: `{username}_assembly/` directories contain custom connectomes assembled via `notebook/assemble_connectomes.ipynb`. Single-molecule neurotransmitter connectomes go into molecule subdirectories; neuropeptide and aggregated connectomes are saved flat in the root.
+
 
 ## Data Directory Tree
 
 ```
 data/
-├── assets.json
-│
 ├── Altun2013/
 │   ├── NPP_receptor_info.csv
 │   └── NT_receptor_info.csv
@@ -133,6 +171,37 @@ data/
 ```
 Note: Files marked `(raw)` are original source files kept for reference but not directly used in assets.json.
 
+## Data Conventions
+
+- Connectome matrices are square DataFrames: rows = source neurons, columns = recipient neurons
+- Value `1` = known connection; `0.5` = variable connection; `0` = evidence of absence; `NaN` = absence of evidence
+- Neuron IDs follow WormAtlas naming (e.g., `ASEL`, `ASER`, `DA01`)
+
+## Asset Construction Workflow
+
+1. **Extract**: Notebooks in `notebook/` convert source formats (RData, XLSX) to CSV
+2. **Transform**: One-hot encode categorical features, standardize neuron ordering via `standardize_dataframe(df, neuron_order)`, saved to CSV
+3. **Load**: Wrap in `NeuronFeatures` or `NeuronInteraction` classes for analysis
+
+## Molecular Connectome Assembly
+
+### Logic
+
+```
+Connectome[source, target] = Release[source, NT] AND Receptor[target, receptor] AND (optional) Constraint
+where (NT, receptor) is a valid pair from pairing_info with confidence >= 1
+and 
+Constraint is set with structural chemical synapses and applicable to classical NT (acetylcholine, glutamate)
+```
+
+### Design
+
+1. **Release filtering**: User chooses AND or OR gate across data sources; AND is recommended
+2. **Receptor filtering**: User chooses AND or OR gate across data sources; OR is recommended
+3. **Confidence threshold**: Applied in code logic (confidence < 1 treated as 0)
+4. **Missing values**: Preserved as NaN throughout, all functions robust to NaN
+5. **Output location**: Assembled connectomes saved under `connectomes/{username}_assembly` in `assets.json`
+
 
 ## External links 
 
@@ -142,6 +211,9 @@ https://www.wormatlas.org/neurons/Individual%20Neurons/Neuronframeset.html
 
 Witvliet 2021:
 https://github.com/dwitvliet/nature2021/tree/master
+
+RipollSanchez 2023 (subcellular localization):
+https://github.com/LidiaRipollSanchez/Neuropeptide-Connectome
 
 #### [Neuropeptide ligand & receptor]
 Worm Atlas - Altun 2013: 
@@ -176,22 +248,5 @@ Serotonin receptors (fluorescent reporter) - Dag...Flavell 2023:
 CSV curated by Ugur Dag for Di Kang to make Figure 7
 
 ### [Structural connectome]
-White 1986, Witvliet 2021 - accessed via OpenWorm C. elegans Connectome Toolbox: 
+White 1986, Varshley 2011, Cook 2019, Cook 2020, Witvliet 2021 - accessed via OpenWorm C. elegans Connectome Toolbox: 
 https://openworm.org/ConnectomeToolbox/
-
-
-## Rationales behind Extract, Transform, Load procedures for molecular connectomes
-1) Built monoamine (MA) connectomes and neurotransmitter (NT) connectomes based on fluorescent reporter data for both ligand and receptors
-2) Used neuropeptide (NPP) connectomes built by LipollSanchez2023, which was based on in vitro validation and scRNAseq
-3) For all connectomes, `1` represents known connection, whereas `0` is the absence of evidence of connection -- not evidence of absence!
-
-### Overlapping information
-
-Data from the same lab - only the latest version was used
-e.g. Neuropeptide connectome from LipollSanchez2023 is used instead of Bentley2016_PEP since both came out of the Schaefer lab
-e.g. Neurotransmitter atlas from Wang2024 is used instead of Serrano-Saiz2013, Pereira2015, Gendrel2016 since they all came out of the Hobert lab
-
-Data from different labs - all were included as independent observations
-exception#1: White1986 (N2U) was dropped and Varshney2011 was used instead because Varshney went back to the lab notebook of White et al. and fixed a few misannotations/ missing links. Varshley also merged N2U with the midbody and tail datasets from 2 other labs.
-
-exception#2: White1986 (A, which was a merge of N2U, N2T, N2W, JSA, JSE)/ Varshley2011 were considered independent observations from Cook2019Herm even though it was the same 5 specimen. This is because Cook2019Herm was a re-annotation of the same images on a new graphical user interface that boosted synaptic counts.

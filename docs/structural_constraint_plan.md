@@ -39,14 +39,8 @@ constrained = molecular * (structural > 0)
 ```
 Only allow molecular connections where there's a direct structural synapse.
 
-**Mode B: Multi-hop (n-hop)**
-```
-reachable = compute_reachability(structural, max_hops=n)
-constrained = molecular * reachable
-```
-Allow molecular connections if target is within n structural hops of source.
 
-**Mode C: Weighted by structural strength**
+**Mode B: Weighted by structural strength**
 ```
 constrained = molecular * structural  # preserves synapse counts
 ```
@@ -108,7 +102,6 @@ def apply_structural_constraint(
     molecular: pd.DataFrame,
     structural: pd.DataFrame,
     mode: str = 'binary',
-    max_hops: int = 1
 ) -> pd.DataFrame:
     """
     Constrain molecular connectome by structural connectivity.
@@ -125,20 +118,6 @@ def apply_structural_constraint(
     ...
 ```
 
-### Phase 3: Reachability computation (for multi-hop)
-
-```python
-def compute_reachability(
-    structural: pd.DataFrame,
-    max_hops: int
-) -> pd.DataFrame:
-    """
-    Compute which neurons are reachable within n hops.
-
-    Uses matrix exponentiation: reachable = sum(A^k for k in 1..n) > 0
-    """
-    ...
-```
 
 ## Metadata extension
 
@@ -149,7 +128,6 @@ When saving constrained connectomes, add to metadata:
         "dataset": "Cook2019",
         "synapse_type": "chemical",
         "mode": "binary",
-        "max_hops": 1
     }
 }
 ```
@@ -157,13 +135,7 @@ When saving constrained connectomes, add to metadata:
 ## Open Questions
 
 1. **Default structural dataset?** Cook2019 is most complete, but should we require explicit choice?
+Answer: Default to None -- no structural constraint unless one is specified
 
 2. **How to handle electrical synapses?** They're bidirectional - should we symmetrize them before applying constraint?
-
-3. **Multi-hop performance?** Matrix exponentiation can be slow for large matrices. Cache reachability matrices?
-
-4. **Biological interpretation?** What hop count corresponds to short/mid/long range in RipollSanchez2023?
-
-## Validation
-
-Compare constrained assembly to preassembled RipollSanchez2023 short-range connectome, which uses structural proximity constraints internally.
+Answer: yes

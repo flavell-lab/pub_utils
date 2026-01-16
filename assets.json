@@ -1,0 +1,169 @@
+{
+  "neuron_features": {
+    "neuroanatomy": "data/RipollSanchez2023/neuroanatomy.csv"
+  },
+
+  "structural_connectomes": {
+    "preassembled": {
+      "electrical_synapse": {
+        "Cook2019": "connectomes/preassembled/electrical_Cook2019.csv",
+        "Cook2019Male": "connectomes/preassembled/electrical_Cook2019Male.csv",
+        "Cook2020": "connectomes/preassembled/electrical_Cook2020.csv",
+        "Varshney2011": "connectomes/preassembled/electrical_Varshney2011.csv",
+        "WhiteA": "connectomes/preassembled/electrical_WhiteA.csv",
+        "WhiteL4": "connectomes/preassembled/electrical_WhiteL4.csv",
+        "WhiteWhole": "connectomes/preassembled/electrical_WhiteWhole.csv",
+        "WitvlietA_07": "connectomes/preassembled/electrical_WitvlietA_07.csv",
+        "WitvlietA_08": "connectomes/preassembled/electrical_WitvlietA_08.csv",
+        "WitvlietL1_01": "connectomes/preassembled/electrical_WitvlietL1_01.csv",
+        "WitvlietL1_02": "connectomes/preassembled/electrical_WitvlietL1_02.csv",
+        "WitvlietL1_03": "connectomes/preassembled/electrical_WitvlietL1_03.csv",
+        "WitvlietL1_04": "connectomes/preassembled/electrical_WitvlietL1_04.csv",
+        "WitvlietL2_05": "connectomes/preassembled/electrical_WitvlietL2_05.csv",
+        "WitvlietL3_06": "connectomes/preassembled/electrical_WitvlietL3_06.csv"
+      },
+      "chemical_synapse": {
+        "Cook2019": "connectomes/preassembled/chemical_Cook2019.csv",
+        "Cook2019Male": "connectomes/preassembled/chemical_Cook2019Male.csv",
+        "Cook2020": "connectomes/preassembled/chemical_Cook2020.csv",
+        "Varshney2011": "connectomes/preassembled/chemical_Varshney2011.csv",
+        "WhiteA": "connectomes/preassembled/chemical_WhiteA.csv",
+        "WhiteL4": "connectomes/preassembled/chemical_WhiteL4.csv",
+        "WhiteWhole": "connectomes/preassembled/chemical_WhiteWhole.csv",
+        "WitvlietA_07": "connectomes/preassembled/chemical_WitvlietA_07.csv",
+        "WitvlietA_08": "connectomes/preassembled/chemical_WitvlietA_08.csv",
+        "WitvlietL1_01": "connectomes/preassembled/chemical_WitvlietL1_01.csv",
+        "WitvlietL1_02": "connectomes/preassembled/chemical_WitvlietL1_02.csv",
+        "WitvlietL1_03": "connectomes/preassembled/chemical_WitvlietL1_03.csv",
+        "WitvlietL1_04": "connectomes/preassembled/chemical_WitvlietL1_04.csv",
+        "WitvlietL2_05": "connectomes/preassembled/chemical_WitvlietL2_05.csv",
+        "WitvlietL3_06": "connectomes/preassembled/chemical_WitvlietL3_06.csv",
+        "Yim2024": "connectomes/preassembled/chemical_Yim2024.csv"
+      }
+    }
+  },
+
+  "molecular_connectomes": {
+    "preassembled": {
+      "neuropeptide": {
+        "RipollSanchez2023_shortRange": "connectomes/preassembled/NPP_RipollSanchez2023_shortRange.csv",
+        "RipollSanchez2023_midRange": "connectomes/preassembled/NPP_RipollSanchez2023_midRange.csv",
+        "RipollSanchez2023_longRange": "connectomes/preassembled/NPP_RipollSanchez2023_longRange.csv"
+      },
+      "monoamine": {
+        "RipollSanchez2023": "connectomes/preassembled/monoamine_RipollSanchez2023.csv",
+        "dopamine_Bentley2016": "connectomes/preassembled/dopamine_Bentley2016.csv",
+        "serotonin_Bentley2016": "connectomes/preassembled/serotonin_Bentley2016.csv",
+        "tyramine_Bentley2016": "connectomes/preassembled/tyramine_Bentley2016.csv",
+        "octopamine_Bentley2016": "connectomes/preassembled/octopamine_Bentley2016.csv"
+      }
+    },
+    "candy_assembly": {
+    }
+  },
+
+  "gene_info": {
+    "neurotransmitter": "data/HobertLab/NT_uptake_synthesis_release_gene_info.csv"
+  },
+
+  "pairing_info": {
+    "neurotransmitter": "data/Altun2013/NT_receptor_info.csv",
+    "neuropeptide": {
+      "Altun2013": "data/Altun2013/NPP_receptor_info.csv",
+      "Bentley2016": "data/Bentley2016/NPP_receptor_info.csv",
+      "RipollSanchez2023": "data/RipollSanchez2023/NPP_receptor_info.csv"
+    }
+  },
+
+  "release": {
+    "neurotransmitter": {
+      "literature": {
+        "Bentley2016": "data/Bentley2016/NT_release_literature.csv"
+      },
+      "reporter": {
+        "Wang2024": "data/Wang2024/NT_release_reporter.csv"
+      },
+      "staining": {
+        "Wang2024": "data/Wang2024/NT_release_staining.csv"
+      }
+    },
+    "neuropeptide": {
+      "literature": {
+        "Bentley2016": "data/Bentley2016/NPP_release_literature.csv"
+      },
+      "sequencing": {
+        "RipollSanchez2023": "data/RipollSanchez2023/NPP_release_sequencing.csv"
+      }
+    }
+  },
+
+  "receptor": {
+    "neurotransmitter": {
+      "acetylcholine": {
+        "ionotropic": {
+          "sequencing": {
+            "Fenyves2020": "data/Fenyves2020/acetylcholine_receptor_ionotropic_sequencing.csv"
+          }
+        },
+        "metabotropic": {
+          "reporter": {
+            "HobertLab": "data/HobertLab/acetylcholine_receptor_metabotropic_reporter.csv"
+          }
+        }
+      },
+      "gaba": {
+        "ionotropic": {
+          "sequencing": {
+            "Fenyves2020": "data/Fenyves2020/gaba_receptor_ionotropic_sequencing.csv"
+          }
+        },
+        "all": {
+          "reporter": {
+            "HobertLab": "data/HobertLab/gaba_receptor_all_reporter.csv"
+          }
+        }
+      },
+      "glutamate": {
+        "ionotropic": {
+          "sequencing": {
+            "Fenyves2020": "data/Fenyves2020/glutamate_receptor_ionotropic_sequencing.csv"
+          }
+        }
+      },
+      "dopamine": {
+        "all": {
+          "reporter": {
+            "Muralidhara2025": "data/Muralidhara2025/dopamine_receptor_all_reporter.csv"
+          },
+          "sequencing": {
+            "Muralidhara2025": "data/Muralidhara2025/dopamine_receptor_all_sequencing.csv"
+          }
+        }
+      },
+      "serotonin": {
+        "all": {
+          "reporter": {
+            "Dag2023": "data/Dag2023/serotonin_receptor_all_reporter.csv"
+          }
+        }
+      },
+      "all": {
+        "all": {
+          "literature": {
+            "Bentley2016": "data/Bentley2016/NT_receptor_all_literature.csv"
+          }
+        }
+      }
+    },
+    "neuropeptide": {
+      "metabotropic": {
+        "literature": {
+          "Bentley2016": "data/Bentley2016/NPP_receptor_metabotropic_literature.csv"
+        },
+        "sequencing": {
+          "RipollSanchez2023": "data/RipollSanchez2023/NPP_receptor_all_sequencing.csv"
+        }
+      }
+    }
+  }
+}
