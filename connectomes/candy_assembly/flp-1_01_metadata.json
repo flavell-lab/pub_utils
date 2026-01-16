@@ -1,0 +1,13 @@
+{
+  "created": "2026-01-15T19:14:41.910103",
+  "neuropeptide": "flp-1",
+  "release_sources": [
+    "sequencing:RipollSanchez2023"
+  ],
+  "release_gate": "or",
+  "receptor_sources": [
+    "sequencing:RipollSanchez2023"
+  ],
+  "receptor_gate": "or",
+  "pairing_source": "RipollSanchez2023"
+}

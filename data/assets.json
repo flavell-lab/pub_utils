@@ -58,7 +58,7 @@
         "octopamine_Bentley2016": "connectomes/preassembled/octopamine_Bentley2016.csv"
       }
     },
-    "dk_assembly": {
+    "candy_assembly": {
     }
   },
 
@@ -142,8 +142,8 @@
       },
       "serotonin": {
         "all": {
-          "literature": {
-            "Dag2023": "data/Dag2023/serotonin_receptor_all_literature.csv"
+          "reporter": {
+            "Dag2023": "data/Dag2023/serotonin_receptor_all_reporter.csv"
           }
         }
       },

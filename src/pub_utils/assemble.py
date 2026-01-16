@@ -231,6 +231,7 @@ def get_release_vector(
     neurotransmitter: str,
     markers: list[str],
     sources: list[str] = None,
+    gate: str = 'or',
     neuron_order: list = AllHermNeurons
 ) -> pd.Series:
     """
@@ -241,6 +242,7 @@ def get_release_vector(
         markers: ['release'], ['synthesis', 'release'], or specific genes ['cat-2']
         sources: List of source keys like ['literature:Bentley2016', 'reporter:Wang2024']
                  If None, uses all available sources.
+        gate: 'or' (any source sufficient) or 'and' (all sources must agree)
         neuron_order: Canonical neuron ordering for output.
 
     Returns:
@@ -252,7 +254,7 @@ def get_release_vector(
         2. Load release matrices from specified sources
         3. For each source, extract columns matching resolved genes
         4. Apply AND gate across genes within each source
-        5. Apply OR gate across sources (any positive source = positive)
+        5. Apply gate ('or' or 'and') across sources
         6. Align to neuron_order, fill missing with NaN
     """
     # Step 1: Resolve markers to gene names
@@ -293,14 +295,19 @@ def get_release_vector(
         source_result = df[available_genes].min(axis=1)
         source_results.append(source_result)
 
-    # Step 4: OR gate across sources
+    # Step 4: Apply gate across sources
     if not source_results:
         # No data found, return NaN series
         return pd.Series(np.nan, index=neuron_order)
 
-    # Combine all sources: OR gate = max across sources
+    # Combine all sources based on gate
     combined = pd.concat(source_results, axis=1)
-    result = combined.max(axis=1)
+    if gate == 'or':
+        # OR gate = max: 1 if any source is 1
+        result = combined.max(axis=1)
+    else:  # 'and'
+        # AND gate = min: 1 only if all sources are 1
+        result = combined.min(axis=1)
 
     # Step 5: Align to neuron_order
     result = result.reindex(neuron_order)
@@ -432,12 +439,12 @@ def assemble_nt_connectome(
     neurotransmitter: str,
     release_markers: list[str],
     release_sources: list[str] = None,
+    release_gate: str = 'or',
     receptor_sources: list[str] = None,
     receptor_gate: str = 'or',
     receptor_type: str = 'all',
-    output_format: str = 'binary',
     neuron_order: list = AllHermNeurons
-) -> pd.DataFrame | dict[str, pd.DataFrame]:
+) -> dict:
     """
     Assemble a molecular connectome for a neurotransmitter.
 
@@ -446,18 +453,18 @@ def assemble_nt_connectome(
         release_markers: ['release'], ['synthesis', 'release'], etc.
         release_sources: Sources for release data (e.g., ['literature:Bentley2016']).
                         None = use all available.
+        release_gate: 'or' (any source sufficient) or 'and' (all sources must agree)
         receptor_sources: Sources for receptor data (e.g., ['reporter:Muralidhara2025']).
                          Required - no default to force explicit choice.
         receptor_gate: 'or' or 'and' across receptor sources
         receptor_type: 'all', 'ionotropic', 'metabotropic'
-        output_format:
-            'per_pair' - dict of {receptor: source×target DataFrame}
-            'count' - source×target DataFrame with receptor counts
-            'binary' - source×target DataFrame with 1 if any connection
         neuron_order: Canonical neuron ordering
 
     Returns:
-        DataFrame or dict depending on output_format.
+        dict with three keys:
+            'per_pair' - dict of {receptor: source×target DataFrame}
+            'count' - source×target DataFrame with receptor counts
+            'binary' - source×target DataFrame with 1 if any connection
         Matrix semantics: rows = source neurons, columns = target neurons.
     """
     if receptor_sources is None:
@@ -465,7 +472,7 @@ def assemble_nt_connectome(
 
     # Step 1: Get release vector (source capability)
     release = get_release_vector(
-        neurotransmitter, release_markers, release_sources, neuron_order
+        neurotransmitter, release_markers, release_sources, release_gate, neuron_order
     )
 
     # Step 2: Get receptor matrix (target capability)
@@ -473,13 +480,16 @@ def assemble_nt_connectome(
         neurotransmitter, receptor_sources, receptor_gate, receptor_type, neuron_order
     )
 
+    # Handle empty receptor case
     if receptor.empty:
-        if output_format == 'per_pair':
-            return {}
-        else:
-            return pd.DataFrame(
-                np.nan, index=neuron_order, columns=neuron_order, dtype=float
-            )
+        empty_matrix = pd.DataFrame(
+            np.nan, index=neuron_order, columns=neuron_order, dtype=float
+        )
+        return {
+            'per_pair': {},
+            'count': empty_matrix.copy(),
+            'binary': empty_matrix.copy()
+        }
 
     # Step 3: Compute per-receptor connectomes via outer product
     per_pair = {}
@@ -501,36 +511,28 @@ def assemble_nt_connectome(
             columns=neuron_order
         )
 
-    # Step 4: Format output
-    if output_format == 'per_pair':
-        return per_pair
+    # Step 4: Compute count matrix
+    count_matrix = pd.DataFrame(
+        0.0, index=neuron_order, columns=neuron_order
+    )
+    for receptor_name, matrix in per_pair.items():
+        count_matrix = count_matrix.add(matrix.fillna(0))
 
-    elif output_format == 'count':
-        # Sum across receptors, treating NaN as 0 for summation
-        count_matrix = pd.DataFrame(
-            0.0, index=neuron_order, columns=neuron_order
-        )
-        for receptor_name, matrix in per_pair.items():
-            count_matrix = count_matrix.add(matrix.fillna(0))
+    # Restore NaN where ALL receptor matrices were NaN
+    all_nan_mask = pd.DataFrame(True, index=neuron_order, columns=neuron_order)
+    for matrix in per_pair.values():
+        all_nan_mask = all_nan_mask & matrix.isna()
+    count_matrix[all_nan_mask] = np.nan
 
-        # Restore NaN where ALL receptor matrices were NaN
-        all_nan_mask = pd.DataFrame(True, index=neuron_order, columns=neuron_order)
-        for matrix in per_pair.values():
-            all_nan_mask = all_nan_mask & matrix.isna()
-        count_matrix[all_nan_mask] = np.nan
+    # Step 5: Compute binary matrix
+    binary_matrix = (count_matrix >= 1).astype(float)
+    binary_matrix[count_matrix.isna()] = np.nan
 
-        return count_matrix
-
-    else:  # 'binary'
-        # First get count matrix, then threshold
-        count_matrix = assemble_nt_connectome(
-            neurotransmitter, release_markers, release_sources,
-            receptor_sources, receptor_gate, receptor_type,
-            'count', neuron_order
-        )
-        binary_matrix = (count_matrix >= 1).astype(float)
-        binary_matrix[count_matrix.isna()] = np.nan
-        return binary_matrix
+    return {
+        'per_pair': per_pair,
+        'count': count_matrix,
+        'binary': binary_matrix
+    }
 
 
 # =============================================================================
@@ -593,6 +595,7 @@ def _load_npp_receptor_data(source_method: str, source_dataset: str) -> pd.DataF
 def get_npp_release_vector(
     neuropeptide: str,
     sources: list[str] = None,
+    gate: str = 'or',
     neuron_order: list = AllHermNeurons
 ) -> pd.Series:
     """
@@ -602,6 +605,7 @@ def get_npp_release_vector(
         neuropeptide: NPP name (e.g., 'flp-1', 'nlp-12')
         sources: List of source keys ['literature:Bentley2016', 'sequencing:RipollSanchez2023']
                  If None, uses all available sources.
+        gate: 'or' (any source sufficient) or 'and' (all sources must agree)
         neuron_order: Canonical neuron ordering for output.
 
     Returns:
@@ -640,9 +644,14 @@ def get_npp_release_vector(
         warnings.warn(f"No release data found for neuropeptide '{neuropeptide}'")
         return pd.Series(np.nan, index=neuron_order)
 
-    # OR gate across sources
+    # Apply gate across sources
     combined = pd.concat(source_results, axis=1)
-    result = combined.max(axis=1)
+    if gate == 'or':
+        # OR gate = max: 1 if any source is 1
+        result = combined.max(axis=1)
+    else:  # 'and'
+        # AND gate = min: 1 only if all sources are 1
+        result = combined.min(axis=1)
 
     return result.reindex(neuron_order)
 
@@ -732,29 +741,29 @@ def get_npp_receptor_matrix(
 def assemble_npp_connectome(
     neuropeptide: str = None,
     release_sources: list[str] = None,
+    release_gate: str = 'or',
     receptor_sources: list[str] = None,
     pairing_source: str = "RipollSanchez2023",
     receptor_gate: str = 'or',
-    output_format: str = 'binary',
     neuron_order: list = AllHermNeurons
-) -> pd.DataFrame | dict[str, pd.DataFrame]:
+) -> dict:
     """
     Assemble a molecular connectome for a neuropeptide.
 
     Args:
         neuropeptide: NPP name (e.g., 'flp-1'). Required.
         release_sources: Sources for release data. None = use all available.
+        release_gate: 'or' (any source sufficient) or 'and' (all sources must agree)
         receptor_sources: Sources for receptor data. Required.
         pairing_source: Which pairing info ('Altun2013', 'Bentley2016', 'RipollSanchez2023')
         receptor_gate: 'or' or 'and' across receptor sources
-        output_format:
-            'per_pair' - dict of {receptor: source×target DataFrame}
-            'count' - source×target DataFrame with receptor counts
-            'binary' - source×target DataFrame with 1 if any connection
         neuron_order: Canonical neuron ordering
 
     Returns:
-        DataFrame or dict depending on output_format.
+        dict with three keys:
+            'per_pair' - dict of {receptor: source×target DataFrame}
+            'count' - source×target DataFrame with receptor counts
+            'binary' - source×target DataFrame with 1 if any connection
         Matrix semantics: rows = source neurons, columns = target neurons.
     """
     if neuropeptide is None:
@@ -763,20 +772,23 @@ def assemble_npp_connectome(
         raise ValueError("receptor_sources must be specified explicitly")
 
     # Step 1: Get release vector (source capability)
-    release = get_npp_release_vector(neuropeptide, release_sources, neuron_order)
+    release = get_npp_release_vector(neuropeptide, release_sources, release_gate, neuron_order)
 
     # Step 2: Get receptor matrix (target capability)
     receptor = get_npp_receptor_matrix(
         neuropeptide, receptor_sources, pairing_source, receptor_gate, neuron_order
     )
 
+    # Handle empty receptor case
     if receptor.empty:
-        if output_format == 'per_pair':
-            return {}
-        else:
-            return pd.DataFrame(
-                np.nan, index=neuron_order, columns=neuron_order, dtype=float
-            )
+        empty_matrix = pd.DataFrame(
+            np.nan, index=neuron_order, columns=neuron_order, dtype=float
+        )
+        return {
+            'per_pair': {},
+            'count': empty_matrix.copy(),
+            'binary': empty_matrix.copy()
+        }
 
     # Step 3: Compute per-receptor connectomes via outer product
     per_pair = {}
@@ -795,105 +807,28 @@ def assemble_npp_connectome(
             columns=neuron_order
         )
 
-    # Step 4: Format output
-    if output_format == 'per_pair':
-        return per_pair
+    # Step 4: Compute count matrix
+    count_matrix = pd.DataFrame(
+        0.0, index=neuron_order, columns=neuron_order
+    )
+    for receptor_name, matrix in per_pair.items():
+        count_matrix = count_matrix.add(matrix.fillna(0))
 
-    elif output_format == 'count':
-        count_matrix = pd.DataFrame(
-            0.0, index=neuron_order, columns=neuron_order
-        )
-        for receptor_name, matrix in per_pair.items():
-            count_matrix = count_matrix.add(matrix.fillna(0))
+    # Restore NaN where ALL receptor matrices were NaN
+    all_nan_mask = pd.DataFrame(True, index=neuron_order, columns=neuron_order)
+    for matrix in per_pair.values():
+        all_nan_mask = all_nan_mask & matrix.isna()
+    count_matrix[all_nan_mask] = np.nan
 
-        all_nan_mask = pd.DataFrame(True, index=neuron_order, columns=neuron_order)
-        for matrix in per_pair.values():
-            all_nan_mask = all_nan_mask & matrix.isna()
-        count_matrix[all_nan_mask] = np.nan
+    # Step 5: Compute binary matrix
+    binary_matrix = (count_matrix >= 1).astype(float)
+    binary_matrix[count_matrix.isna()] = np.nan
 
-        return count_matrix
-
-    else:  # 'binary'
-        count_matrix = assemble_npp_connectome(
-            neuropeptide, release_sources, receptor_sources,
-            pairing_source, receptor_gate, 'count', neuron_order
-        )
-        binary_matrix = (count_matrix >= 1).astype(float)
-        binary_matrix[count_matrix.isna()] = np.nan
-        return binary_matrix
-
-
-# =============================================================================
-# Connectome I/O with Metadata
-# =============================================================================
-
-def save_connectome(
-    connectome: pd.DataFrame,
-    filepath: str,
-    metadata: dict
-) -> None:
-    """
-    Save a connectome CSV with a JSON sidecar containing metadata.
-
-    Args:
-        connectome: The connectome DataFrame to save
-        filepath: Path to save CSV (e.g., 'connectomes/dk_assembly/dopamine_01.csv')
-        metadata: Dict with assembly parameters. Recommended keys:
-            - molecule: str (e.g., 'dopamine', 'flp-1')
-            - molecule_type: str ('neurotransmitter' or 'neuropeptide')
-            - release_markers: list[str] (for NT only)
-            - release_sources: list[str]
-            - receptor_sources: list[str]
-            - receptor_gate: str
-            - receptor_type: str (for NT only)
-            - pairing_source: str (for NPP only)
-            - output_format: str
-            - description: str (optional)
-
-    Creates:
-        - {filepath} - CSV file with connectome data
-        - {filepath}.json - JSON file with metadata
-    """
-    from datetime import datetime
-
-    # Save CSV
-    connectome.to_csv(filepath)
-
-    # Add automatic metadata
-    full_metadata = {
-        "created": datetime.now().isoformat(),
-        "shape": list(connectome.shape),
-        "total_connections": int(connectome.sum().sum()),
-        "nonzero_entries": int((connectome > 0).sum().sum()),
-        **metadata
+    return {
+        'per_pair': per_pair,
+        'count': count_matrix,
+        'binary': binary_matrix
     }
-
-    # Save JSON sidecar
-    json_path = filepath + ".json"
-    with open(json_path, "w") as f:
-        json.dump(full_metadata, f, indent=2)
-
-
-def load_connectome(filepath: str) -> tuple[pd.DataFrame, dict]:
-    """
-    Load a connectome CSV and its JSON metadata sidecar.
-
-    Args:
-        filepath: Path to CSV file
-
-    Returns:
-        Tuple of (connectome DataFrame, metadata dict)
-        If no JSON sidecar exists, metadata will be empty dict.
-    """
-    connectome = pd.read_csv(filepath, index_col=0)
-
-    json_path = filepath + ".json"
-    metadata = {}
-    if Path(json_path).exists():
-        with open(json_path) as f:
-            metadata = json.load(f)
-
-    return connectome, metadata
 
 
 # =============================================================================
