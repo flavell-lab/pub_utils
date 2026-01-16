@@ -1,0 +1,21 @@
+{
+  "created": "2026-01-15T20:18:44.895676",
+  "molecules": [
+    "dopamine",
+    "serotonin",
+    "tyramine",
+    "octopamine"
+  ],
+  "release_markers": [
+    "synthesis"
+  ],
+  "release_sources": [
+    "literature:Bentley2016"
+  ],
+  "release_gate": "and",
+  "receptor_sources": [
+    "literature:Bentley2016"
+  ],
+  "receptor_gate": "or",
+  "format": "count"
+}

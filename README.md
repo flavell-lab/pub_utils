@@ -1,50 +1,140 @@
-## Repository organization
+## Assets Tree
+
 ```
-pub_utils/
-├── data/
-│   ├── Altun2013/
-│   │   └── NT_receptor_info.csv
-│   └── RipollSanchez2023/
-│       ├── GPCR_per_neuron.csv
-│       ├── monoamine_connectome_08062023.csv
-│       ├── neuroanatomy.csv
-│       ├── NPP_connectome_long_range_01022024.csv
-│       ├── NPP_connectome_mid_range_01022024.csv
-│       ├── NPP_connectome_short_range_01022024.csv
-│       ├── NPP_GPCR_info.csv
-│       ├── NPPpairsbyneuron_longrange.csv
-│       ├── NPPpairsbyneuron_midrange.csv
-│       ├── NPPpairsbyneuron_shortrange.csv
-│       └── NPP_per_neuron.csv
-├── notebook/
-│   ├── analyze_molecular_connectomes.ipynb
-│   ├── extract_transform_load_data.ipynb
-│   ├── plot_molecular_connectomes.ipynb
-│   ├── plot_neuron_features.ipynb
-│   └── plot_NPP_GPCR_pairing.ipynb
-├── plots/
-│   ├── monoamine_connectome.png
-│   ├── neuron_features.png
-│   ├── NPP_connectome_long_range.png
-│   ├── NPP_connectome_mid_range.png
-│   ├── NPP_connectome_short_range.png
-│   ├── NPP_GPCR_edge_counts.png
-│   └── NPP_GPCR_pairing.png
-├── processed/
-│   ├── monoamine_connectome.pkl
-│   ├── neuron_features.pkl
-│   ├── NPP_connectome_long_range.pkl
-│   ├── NPP_connectome_mid_range.pkl
-│   └── NPP_connectome_short_range.pkl
-└── src/
-    └── pub_utils/
-        ├── __init__.py
-        ├── core.py
-        ├── io.py
-        └── plot.py
+assets
+├── neuron_features
+│   └── neuroanatomy
+│
+├── structural_connectomes
+│   └── preassembled
+│       ├── electrical_synapse    [14 sources]
+│       └── chemical_synapse      [16 sources]
+│
+├── molecular_connectomes
+│   ├── preassembled
+│   │   ├── neuropeptide          [3 sources]
+│   │   └── monoamine             [5 sources]
+│   │
+│   └── candy_assembly (customized logic)
+│       ├── neuropeptide
+│       ├── classical neurotransmitters
+│       └── monoamine
+│
+├── pairing_info
+│   ├── neurotransmitter
+│   └── neuropeptide              [3 sources]
+│
+├── release
+│   ├── neurotransmitter
+│   │   ├── literature
+│   │   ├── reporter
+│   │   └── staining
+│   │
+│   └── neuropeptide
+│       ├── literature
+│       └── sequencing
+│
+└── receptor
+    ├── neurotransmitter
+    │   ├── acetylcholine
+    │   │   ├── sequencing
+    │   │   └── reporter
+    │   ├── gaba
+    │   │   ├── sequencing
+    │   │   └── reporter
+    │   ├── glutamate
+    │   │   └── sequencing
+    │   ├── dopamine
+    │   │   ├── reporter
+    │   │   └── sequencing
+    │   ├── serotonin
+    │   │   └── reporter
+    │   ├── tyramine
+    │   │   └── sequencing
+    │   ├── octopamine
+    │   │   └── sequencing
+    │   └── all
+    │       └── literature
+    │   
+    └── neuropeptide
+        ├── literature
+        └── sequencing
 ```
 
-## Data 
+## Data Directory Tree
+
+```
+data/
+├── assets.json
+│
+├── Altun2013/
+│   ├── NPP_receptor_info.csv
+│   └── NT_receptor_info.csv
+│
+├── Bentley2016/
+│   ├── NPP_receptor_info.csv
+│   ├── NPP_receptor_metabotropic_literature.csv
+│   ├── NPP_release_literature.csv
+│   ├── NT_receptor_all_literature.csv
+│   ├── NT_release_literature.csv
+│   ├── dopamine_receptor_all_reporter.csv
+│   ├── octopamine_receptor_all_literature.csv
+│   ├── serotonin_receptor_all_literature.csv
+│   ├── tyramine_receptor_all_literature.csv
+│   ├── monoamine_expression.csv                   (raw)
+│   ├── monoamine_receptor_expression.csv          (raw)
+│   ├── neuropeptide_expression.csv                (raw)
+│   ├── neuropeptide_receptor_expression.csv       (raw)
+│   └── supplementary_references.csv               (raw)
+│
+├── Dag2023/
+│   ├── serotonin_receptor_all_reporter.csv
+│   └── 5htr_expression_dv_final.csv               (raw)
+│
+├── Fenyves2020/
+│   ├── acetylcholine_receptor_ionotropic_sequencing.csv
+│   ├── gaba_receptor_ionotropic_sequencing.csv
+│   ├── glutamate_receptor_ionotropic_sequencing.csv
+│   ├── NT_receptor_expression.csv                 (raw)
+│   └── NT_receptor_polarity.csv                   (raw)
+│
+├── HobertLab/
+│   ├── NT_uptake_synthesis_release_gene_info.csv
+│   ├── acetylcholine_receptor_metabotropic_reporter.csv
+│   ├── gaba_receptor_all_reporter.csv
+│   ├── MA_gaba_release_expression_sequencing.csv  (raw)
+│   └── NT_receptors.R                             (raw)
+│
+├── Muralidhara2025/
+│   ├── dopamine_receptor_all_reporter.csv
+│   └── dopamine_receptor_all_sequencing.csv
+│
+├── RipollSanchez2023/
+│   ├── NPP_receptor_info.csv
+│   ├── NPP_receptor_all_sequencing.csv
+│   ├── NPP_release_sequencing.csv
+│   ├── neuroanatomy.csv
+│   ├── NPP_connectome_short_range_01022024.csv    (raw)
+│   ├── NPP_connectome_mid_range_01022024.csv      (raw)
+│   ├── NPP_connectome_long_range_01022024.csv     (raw)
+│   ├── monoamine_connectome_08062023.csv          (raw)
+│   ├── GPCR_per_neuron.csv                        (raw)
+│   ├── NPP_per_neuron.csv                         (raw)
+│   ├── NPPpairsbyneuron_*.csv                     (raw)
+│   ├── 30072020_CENGEN_*.csv                      (raw)
+│   ├── group/                                     (raw)
+│   └── individual/                                (raw)
+│
+└── Wang2024/
+    ├── NT_release_reporter.csv
+    ├── NT_release_staining.csv
+    ├── NT_release_reporter_male.csv
+    └── NT_release_staining_male.csv
+```
+Note: Files marked `(raw)` are original source files kept for reference but not directly used in assets.json.
+
+
+## External links 
 
 #### [Neuroanatomy]
 Worm Atlas:
@@ -90,39 +180,12 @@ White 1986, Witvliet 2021 - accessed via OpenWorm C. elegans Connectome Toolbox:
 https://openworm.org/ConnectomeToolbox/
 
 
-# Rationales behind Extract, Transform, Load procedures for molecular connectomes
+## Rationales behind Extract, Transform, Load procedures for molecular connectomes
 1) Built monoamine (MA) connectomes and neurotransmitter (NT) connectomes based on fluorescent reporter data for both ligand and receptors
 2) Used neuropeptide (NPP) connectomes built by LipollSanchez2023, which was based on in vitro validation and scRNAseq
 3) For all connectomes, `1` represents known connection, whereas `0` is the absence of evidence of connection -- not evidence of absence!
 
-
-# OpenWorm - C.elegans Connectome Toolbox
-
-### Structural connectome
-
-Cook2019Herm - all
-Cook2019Male - all
-Cook2020 - herm pharynx only
-
-### Molecular connectome
-
-Neurotransmitter - GABA, Glutamate, Acetylcholine
-
-Monoamine - Dopamine, Serotonin, Octopamine, Tyramine, Betaine
-
-Neuropeptide
-
-
-Wang2024Herm
-Wang2024Male
-
-
-### Causal connectome
-
-Randi2023 - head neurons only
-
-
-# Overlapping data
+### Overlapping information
 
 Data from the same lab - only the latest version was used
 e.g. Neuropeptide connectome from LipollSanchez2023 is used instead of Bentley2016_PEP since both came out of the Schaefer lab
