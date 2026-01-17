@@ -13,6 +13,12 @@ from .assemble import (
     get_npp_receptor_matrix,
     assemble_npp_connectome,
 )
+from .constrain import (
+    load_structural_connectome,
+    apply_structural_constraint,
+    constrain_assembly,
+    get_available_structural_datasets,
+)
 
 # Define what is exported when someone does 'from pub_utils import *'
 __all__ = [
@@ -38,6 +44,11 @@ __all__ = [
     "get_npp_release_vector",
     "get_npp_receptor_matrix",
     "assemble_npp_connectome",
+    # Structural constraint functions
+    "load_structural_connectome",
+    "apply_structural_constraint",
+    "constrain_assembly",
+    "get_available_structural_datasets",
 ]
 
 __version__ = "0.1.0"

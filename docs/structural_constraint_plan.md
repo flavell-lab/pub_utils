@@ -23,13 +23,9 @@ Available in `connectomes/preassembled/`:
 | Type | Datasets | Notes |
 |------|----------|-------|
 | Chemical synapses | Cook2019, Varshney2011, White*, Witvliet*, Yim2024 | Directional |
-| Electrical (gap junctions) | Cook2019, Varshney2011, White*, Witvliet* | Bidirectional |
 
 **Decision needed:** Should the constraint use:
 - Chemical only (directional signaling)
-- Electrical only (local diffusion)
-- Union of both (any structural contact)
-- User's choice (parameter)
 
 ### 2. Constraint modes
 
@@ -53,7 +49,7 @@ Weight molecular connections by structural synapse count.
 def constrain_by_structure(
     molecular: pd.DataFrame,
     structural: pd.DataFrame,
-    mode: str = 'binary'  # 'binary', 'weighted', 'n-hop'
+    mode: str = 'binary'  # 'binary', 'weighted'
 ) -> pd.DataFrame:
     ...
 ```
@@ -87,7 +83,7 @@ Structural connectomes may have different neuron sets (e.g., male-specific neuro
 
 ```python
 def load_structural_connectome(
-    synapse_type: str,  # 'chemical', 'electrical', 'both'
+    synapse_type: str,  # 'chemical'
     dataset: str,       # 'Cook2019', 'Varshney2011', etc.
     neuron_order: list = AllHermNeurons
 ) -> pd.DataFrame:

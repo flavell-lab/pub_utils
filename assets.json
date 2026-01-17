@@ -6,39 +6,39 @@
   "structural_connectomes": {
     "preassembled": {
       "electrical_synapse": {
-        "Cook2019": "connectomes/preassembled/electrical_Cook2019.csv",
-        "Cook2019Male": "connectomes/preassembled/electrical_Cook2019Male.csv",
-        "Cook2020": "connectomes/preassembled/electrical_Cook2020.csv",
-        "Varshney2011": "connectomes/preassembled/electrical_Varshney2011.csv",
-        "WhiteA": "connectomes/preassembled/electrical_WhiteA.csv",
-        "WhiteL4": "connectomes/preassembled/electrical_WhiteL4.csv",
-        "WhiteWhole": "connectomes/preassembled/electrical_WhiteWhole.csv",
-        "WitvlietA_07": "connectomes/preassembled/electrical_WitvlietA_07.csv",
-        "WitvlietA_08": "connectomes/preassembled/electrical_WitvlietA_08.csv",
-        "WitvlietL1_01": "connectomes/preassembled/electrical_WitvlietL1_01.csv",
-        "WitvlietL1_02": "connectomes/preassembled/electrical_WitvlietL1_02.csv",
-        "WitvlietL1_03": "connectomes/preassembled/electrical_WitvlietL1_03.csv",
-        "WitvlietL1_04": "connectomes/preassembled/electrical_WitvlietL1_04.csv",
-        "WitvlietL2_05": "connectomes/preassembled/electrical_WitvlietL2_05.csv",
-        "WitvlietL3_06": "connectomes/preassembled/electrical_WitvlietL3_06.csv"
+        "Cook2019": "connectomes/preassembled/structural/electrical_Cook2019.csv",
+        "Cook2019Male": "connectomes/preassembled/structural/electrical_Cook2019Male.csv",
+        "Cook2020": "connectomes/preassembled/structural/electrical_Cook2020.csv",
+        "Varshney2011": "connectomes/preassembled/structural/electrical_Varshney2011.csv",
+        "WhiteA": "connectomes/preassembled/structural/electrical_WhiteA.csv",
+        "WhiteL4": "connectomes/preassembled/structural/electrical_WhiteL4.csv",
+        "WhiteWhole": "connectomes/preassembled/structural/electrical_WhiteWhole.csv",
+        "WitvlietA_07": "connectomes/preassembled/structural/electrical_WitvlietA_07.csv",
+        "WitvlietA_08": "connectomes/preassembled/structural/electrical_WitvlietA_08.csv",
+        "WitvlietL1_01": "connectomes/preassembled/structural/electrical_WitvlietL1_01.csv",
+        "WitvlietL1_02": "connectomes/preassembled/structural/electrical_WitvlietL1_02.csv",
+        "WitvlietL1_03": "connectomes/preassembled/structural/electrical_WitvlietL1_03.csv",
+        "WitvlietL1_04": "connectomes/preassembled/structural/electrical_WitvlietL1_04.csv",
+        "WitvlietL2_05": "connectomes/preassembled/structural/electrical_WitvlietL2_05.csv",
+        "WitvlietL3_06": "connectomes/preassembled/structural/electrical_WitvlietL3_06.csv"
       },
       "chemical_synapse": {
-        "Cook2019": "connectomes/preassembled/chemical_Cook2019.csv",
-        "Cook2019Male": "connectomes/preassembled/chemical_Cook2019Male.csv",
-        "Cook2020": "connectomes/preassembled/chemical_Cook2020.csv",
-        "Varshney2011": "connectomes/preassembled/chemical_Varshney2011.csv",
-        "WhiteA": "connectomes/preassembled/chemical_WhiteA.csv",
-        "WhiteL4": "connectomes/preassembled/chemical_WhiteL4.csv",
-        "WhiteWhole": "connectomes/preassembled/chemical_WhiteWhole.csv",
-        "WitvlietA_07": "connectomes/preassembled/chemical_WitvlietA_07.csv",
-        "WitvlietA_08": "connectomes/preassembled/chemical_WitvlietA_08.csv",
-        "WitvlietL1_01": "connectomes/preassembled/chemical_WitvlietL1_01.csv",
-        "WitvlietL1_02": "connectomes/preassembled/chemical_WitvlietL1_02.csv",
-        "WitvlietL1_03": "connectomes/preassembled/chemical_WitvlietL1_03.csv",
-        "WitvlietL1_04": "connectomes/preassembled/chemical_WitvlietL1_04.csv",
-        "WitvlietL2_05": "connectomes/preassembled/chemical_WitvlietL2_05.csv",
-        "WitvlietL3_06": "connectomes/preassembled/chemical_WitvlietL3_06.csv",
-        "Yim2024": "connectomes/preassembled/chemical_Yim2024.csv"
+        "Cook2019": "connectomes/preassembled/structural/chemical_Cook2019.csv",
+        "Cook2019Male": "connectomes/preassembled/structural/chemical_Cook2019Male.csv",
+        "Cook2020": "connectomes/preassembled/structural/chemical_Cook2020.csv",
+        "Varshney2011": "connectomes/preassembled/structural/chemical_Varshney2011.csv",
+        "WhiteA": "connectomes/preassembled/structural/chemical_WhiteA.csv",
+        "WhiteL4": "connectomes/preassembled/structural/chemical_WhiteL4.csv",
+        "WhiteWhole": "connectomes/preassembled/structural/chemical_WhiteWhole.csv",
+        "WitvlietA_07": "connectomes/preassembled/structural/chemical_WitvlietA_07.csv",
+        "WitvlietA_08": "connectomes/preassembled/structural/chemical_WitvlietA_08.csv",
+        "WitvlietL1_01": "connectomes/preassembled/structural/chemical_WitvlietL1_01.csv",
+        "WitvlietL1_02": "connectomes/preassembled/structural/chemical_WitvlietL1_02.csv",
+        "WitvlietL1_03": "connectomes/preassembled/structural/chemical_WitvlietL1_03.csv",
+        "WitvlietL1_04": "connectomes/preassembled/structural/chemical_WitvlietL1_04.csv",
+        "WitvlietL2_05": "connectomes/preassembled/structural/chemical_WitvlietL2_05.csv",
+        "WitvlietL3_06": "connectomes/preassembled/structural/chemical_WitvlietL3_06.csv",
+        "Yim2024": "connectomes/preassembled/structural/chemical_Yim2024.csv"
       }
     }
   },
@@ -46,16 +46,22 @@
   "molecular_connectomes": {
     "preassembled": {
       "neuropeptide": {
-        "RipollSanchez2023_shortRange": "connectomes/preassembled/NPP_RipollSanchez2023_shortRange.csv",
-        "RipollSanchez2023_midRange": "connectomes/preassembled/NPP_RipollSanchez2023_midRange.csv",
-        "RipollSanchez2023_longRange": "connectomes/preassembled/NPP_RipollSanchez2023_longRange.csv"
+        "RipollSanchez2023_shortRange": "connectomes/preassembled/molecular/NPP_RipollSanchez2023_shortRange.csv",
+        "RipollSanchez2023_midRange": "connectomes/preassembled/molecular/NPP_RipollSanchez2023_midRange.csv",
+        "RipollSanchez2023_longRange": "connectomes/preassembled/molecular/NPP_RipollSanchez2023_longRange.csv",
+        "Bentley2016": "connectomes/preassembled/molecular/NPP_Bentley2016.csv",
+        "FLP-10_DMSR-1_RipollSanchez2023_longRange": "connectomes/preassembled/molecular/FLP-10_DMSR-1_RipollSanchez2023_longRange.csv",
+        "FLP-10_DMSR-1_RipollSanchez2023_midRange": "connectomes/preassembled/molecular/FLP-10_DMSR-1_RipollSanchez2023_midRange.csv",
+        "FLP-1_DMSR-7_RipollSanchez2023_longRange": "connectomes/preassembled/molecular/FLP-1_DMSR-7_RipollSanchez2023_longRange.csv",
+        "FLP-1_DMSR-7_RipollSanchez2023_midRange": "connectomes/preassembled/molecular/FLP-1_DMSR-7_RipollSanchez2023_midRange.csv"
       },
       "monoamine": {
-        "RipollSanchez2023": "connectomes/preassembled/monoamine_RipollSanchez2023.csv",
-        "dopamine_Bentley2016": "connectomes/preassembled/dopamine_Bentley2016.csv",
-        "serotonin_Bentley2016": "connectomes/preassembled/serotonin_Bentley2016.csv",
-        "tyramine_Bentley2016": "connectomes/preassembled/tyramine_Bentley2016.csv",
-        "octopamine_Bentley2016": "connectomes/preassembled/octopamine_Bentley2016.csv"
+        "RipollSanchez2023": "connectomes/preassembled/molecular/monoamine_RipollSanchez2023.csv",
+        "Bentley2016": "connectomes/preassembled/molecular/monoamine_Bentley2016.csv",
+        "dopamine_Bentley2016": "connectomes/preassembled/molecular/dopamine_Bentley2016.csv",
+        "serotonin_Bentley2016": "connectomes/preassembled/molecular/serotonin_Bentley2016.csv",
+        "tyramine_Bentley2016": "connectomes/preassembled/molecular/tyramine_Bentley2016.csv",
+        "octopamine_Bentley2016": "connectomes/preassembled/molecular/octopamine_Bentley2016.csv"
       }
     },
     "candy_assembly": {

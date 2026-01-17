@@ -26,7 +26,7 @@ def _load_assets() -> dict:
     """Load and cache assets.json."""
     global _ASSETS_CACHE
     if _ASSETS_CACHE is None:
-        with open(_BASE_PATH / "data" / "assets.json") as f:
+        with open(_BASE_PATH / "assets.json") as f:
             _ASSETS_CACHE = json.load(f)
     return _ASSETS_CACHE
 
@@ -364,9 +364,13 @@ def get_receptor_matrix(
             raise ValueError(f"Invalid source format '{source_key}', expected 'method:dataset'")
         method, dataset = parts
 
-        # Try loading with specific receptor_type, fall back to 'all'
+        # Try loading with specific receptor_type, fall back to other types
         df = None
-        for rtype in [receptor_type, 'all']:
+        if receptor_type == 'all':
+            rtypes_to_try = ['all', 'ionotropic', 'metabotropic']
+        else:
+            rtypes_to_try = [receptor_type, 'all']
+        for rtype in rtypes_to_try:
             # Check if this path exists in assets
             receptor_assets = assets.get("receptor", {}).get("neurotransmitter", {})
 
