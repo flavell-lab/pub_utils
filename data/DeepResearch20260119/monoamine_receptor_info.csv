@@ -1,0 +1,21 @@
+receptor,polarity,mechanism,sources
+dop-1,excitatory,"Metabotropic; Gα_q coupling","[Chase and Koelle, 2007]"
+dop-2,inhibitory,"Metabotropic; Gα_o/i coupling","[Chase and Koelle, 2007]"
+dop-3,inhibitory,"Metabotropic; Gα_o/i coupling","[Chase and Koelle, 2007]"
+dop-4,excitatory,"Metabotropic; Gα_s coupling","[Chase and Koelle, 2007]"
+dop-5,unknown,"Metabotropic; hypothesized Gα_o/i",
+dop-6,unknown,"Metabotropic; hypothesized Gα_o/i",
+lgc-34,inhibitory,"Anion-selective (Cl-) channel","[Putrenko et al., 2005]"
+lgc-50,excitatory,"Cation-selective (Na+, K+) channel","[Morud et al., 2021]"
+lgc-55,inhibitory,"Anion-selective (Cl-) channel","[Pirri et al., 2009]"
+mod-1,inhibitory,"Anion-selective (Cl-) channel","[Morud et al., 2021]"
+octr-1,inhibitory,"Metabotropic; Gα_o/i coupling","[Chase and Koelle, 2007]"
+ser-1,excitatory,"Metabotropic; Gα_q coupling","[Chase and Koelle, 2007]"
+ser-2,inhibitory,"Metabotropic; Gα_o/i coupling","[Chase and Koelle, 2007]"
+ser-3,excitatory,"Metabotropic; Gα_q coupling","[Chase and Koelle, 2007]"
+ser-4,inhibitory,"Metabotropic; Gα_o/i coupling","[Chase and Koelle, 2007]"
+ser-5,excitatory,"Metabotropic; hypothesized Gα_q/s","[Chase and Koelle, 2007]"
+ser-6,excitatory,"Metabotropic; Gα_s coupling","[Chase and Koelle, 2007]"
+ser-7,excitatory,"Metabotropic; Gα_s coupling","[Chase and Koelle, 2007]"
+tyra-2,inhibitory,"Metabotropic; Gα_o/i coupling","[Chase and Koelle, 2007]"
+tyra-3,inhibitory,"Metabotropic; hypothesized Gα_o/i","[Chase and Koelle, 2007]"

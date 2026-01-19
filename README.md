@@ -26,7 +26,9 @@ And many other useful functionality -- see `src/pub_utils/__init__.py` for the f
 ## Assets Tree
 
 - **Gene Info**: `data/HobertLab/NT_uptake_synthesis_release_gene_info.csv` - maps functional categories (uptake, synthesis, release) to gene names for each NT
-- **Pairing Info**: `data/Altun2013/NT_receptor_info.csv` - maps receptors to ligands with confidence scores and receptor type flags (ionotropic/metabotropic)
+- **Pairing Info**:
+  - `data/Altun2013/NT_receptor_info.csv` - original receptor-ligand mappings with confidence scores and receptor type flags
+  - `connectomes/NT_receptor_info.csv` - merged database combining Altun2013 receptor data with DeepResearch polarity annotations (excitatory/inhibitory/variable/unknown)
 - **Release Data**: neuron × gene matrices (binary) from literature, reporter, staining methods
 - **Receptor Data**: neuron × receptor matrices (binary) from sequencing, reporter, literature methods
 
@@ -59,6 +61,8 @@ assets
 │             
 ├── pairing_info
 │   ├── neurotransmitter
+│   │   ├── Altun2013              (original receptor-ligand mappings)
+│   │   └── merged                 (combined with DeepResearch polarity data)
 │   └── neuropeptide             
 │
 ├── release
@@ -163,11 +167,18 @@ data/
 │   ├── group/                                     (raw)
 │   └── individual/                                (raw)
 │
-└── Wang2024/
-    ├── NT_release_reporter.csv
-    ├── NT_release_staining.csv
-    ├── NT_release_reporter_male.csv
-    └── NT_release_staining_male.csv
+├── Wang2024/
+│   ├── NT_release_reporter.csv
+│   ├── NT_release_staining.csv
+│   ├── NT_release_reporter_male.csv
+│   └── NT_release_staining_male.csv
+│
+└── DeepResearch20260119/
+    ├── NT_receptor_info.csv                            (polarity annotations with sources)
+    ├── acetylcholine_receptor_info.csv                 (detailed mechanism info)
+    ├── gaba_receptor_info.csv
+    ├── glutamate_receptor_info.csv
+    └── monoamine_receptor_info.csv
 ```
 Note: Files marked `(raw)` are original source files kept for reference but not directly used in assets.json.
 

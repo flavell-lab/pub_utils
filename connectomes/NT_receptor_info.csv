@@ -1,0 +1,108 @@
+receptor,ligand,polarity,confidence,channel,GPCR,non_neuronal_expression
+acc-1,acetylcholine,inhibitory,1.0,1,0,
+acc-2,acetylcholine,inhibitory,1.0,1,0,
+acc-3,acetylcholine,inhibitory,1.0,1,0,
+acc-4,acetylcholine,inhibitory,1.0,1,0,
+acr-1,acetylcholine,excitatory,1.0,1,0,"[""body_wall_muscle""]"
+acr-2,acetylcholine,excitatory,1.0,1,0,
+acr-3,acetylcholine,excitatory,1.0,1,0,
+acr-4,acetylcholine,excitatory,1.0,1,0,"[""head_muscle""]"
+acr-5,acetylcholine,excitatory,1.0,1,0,
+acr-6,acetylcholine,excitatory,1.0,1,0,
+acr-7,acetylcholine,excitatory,1.0,1,0,"[""pharyngeal_muscle""]"
+acr-8,acetylcholine,excitatory,1.0,1,0,"[""body_wall_muscle"", ""anal_muscle"", ""vulval_muscle""]"
+acr-9,acetylcholine,excitatory,1.0,1,1,
+acr-10,acetylcholine,excitatory,1.0,1,0,
+acr-11,acetylcholine,excitatory,1.0,1,0,
+acr-12,acetylcholine,excitatory,1.0,1,0,
+acr-13,acetylcholine,excitatory,1.0,1,0,"[""body_wall_muscle"", ""uterine_muscle"", ""anal_depressor_muscle""]"
+acr-14,acetylcholine,excitatory,1.0,1,0,"[""body_wall_muscle"", ""intestine""]"
+acr-15,acetylcholine,excitatory,1.0,1,0,"[""head_muscle"", ""body_wall_muscle""]"
+acr-16,acetylcholine,excitatory,1.0,1,0,"[""anal_depressor_muscle"", ""head_muscle"", ""body_wall_muscle""]"
+acr-17,acetylcholine,excitatory,1.0,1,0,
+acr-18,acetylcholine,excitatory,1.0,1,0,
+acr-19,acetylcholine,excitatory,1.0,1,0,
+acr-20,acetylcholine,excitatory,1.0,1,0,
+acr-21,acetylcholine,excitatory,1.0,1,0,
+acr-22,acetylcholine,excitatory,1.0,1,0,
+acr-23,acetylcholine,excitatory,1.0,1,0,
+acr-24,acetylcholine,excitatory,1.0,1,0,
+acr-25,acetylcholine,excitatory,1.0,1,0,
+cup-4,acetylcholine,excitatory,0.5,1,0,"[""coelomocytes""]"
+deg-3,acetylcholine,excitatory,1.0,1,0,"[""head_muscle""]"
+eat-2,acetylcholine,excitatory,1.0,1,0,"[""pharyngeal_muscle""]"
+gar-1,acetylcholine,inhibitory,1.0,0,1,
+gar-2,acetylcholine,inhibitory,1.0,0,1,
+gar-3,acetylcholine,variable,0.5,0,1,"[""pharyngeal_muscle"", ""anal_depressor_muscle"", ""body_wall_muscle"", ""spicule_protractor_muscle""]"
+lgc-31,acetylcholine,excitatory,0.5,1,0,
+lgc-46,acetylcholine,inhibitory,0.5,1,0,
+lgc-47,acetylcholine,inhibitory,0.5,1,0,
+lgc-48,acetylcholine,inhibitory,0.5,1,0,
+lgc-49,acetylcholine,inhibitory,0.5,1,0,
+unc-29,acetylcholine,excitatory,1.0,1,0,"[""body_wall_muscle""]"
+unc-38,acetylcholine,excitatory,1.0,1,0,"[""body_wall_muscle"", ""vulval_muscle"", ""sex_muscle"", ""protractor_muscle""]"
+unc-63,acetylcholine,excitatory,1.0,1,0,"[""body_wall_muscle"", ""vulval_muscle""]"
+exp-1,gaba,excitatory,1.0,1,0,"[""intestinal_muscle"", ""anal_depressor_muscle""]"
+gab-1,gaba,inhibitory,1.0,1,0,
+gbb-1,gaba,inhibitory,1.0,0,1,
+gbb-2,gaba,inhibitory,1.0,0,1,
+ggr-1,gaba,inhibitory,1.0,1,0,"[""egg_laying_muscle""]"
+ggr-2,gaba,inhibitory,1.0,1,0,"[""egg_laying_muscle""]"
+ggr-3,gaba,inhibitory,1.0,1,0,
+lgc-35,gaba,excitatory,1.0,1,0,
+lgc-36,gaba,unknown,0.5,1,0,
+lgc-37,gaba,unknown,0.5,1,0,
+lgc-38,gaba,unknown,0.5,1,0,
+lgc-39,gaba,inhibitory,0.5,1,0,
+lgc-40,gaba,inhibitory,0.5,1,0,
+lgc-41,gaba,unknown,0.5,1,0,
+lgc-42,gaba,unknown,0.5,1,0,
+lgc-51,gaba,inhibitory,0.5,1,0,
+lgc-52,gaba,inhibitory,0.5,1,0,
+lgc-53,gaba,inhibitory,0.5,1,0,
+lgc-54,gaba,inhibitory,0.5,1,0,
+unc-49,gaba,inhibitory,1.0,1,0,"[""body_wall_muscle"", ""anal_sphincter_muscle""]"
+avr-14,glutamate,inhibitory,1.0,1,0,
+avr-15,glutamate,inhibitory,1.0,1,0,"[""pharyngeal_muscle""]"
+glc-1,glutamate,inhibitory,1.0,1,0,
+glc-2,glutamate,inhibitory,1.0,1,0,"[""pharyngeal_muscle""]"
+glc-3,glutamate,inhibitory,1.0,1,0,
+glc-4,glutamate,inhibitory,1.0,1,0,
+glr-1,glutamate,excitatory,1.0,1,0,
+glr-2,glutamate,excitatory,1.0,1,0,
+glr-3,glutamate,excitatory,1.0,1,0,
+glr-4,glutamate,excitatory,1.0,1,0,
+glr-5,glutamate,excitatory,1.0,1,0,
+glr-6,glutamate,excitatory,1.0,1,0,
+glr-7,glutamate,excitatory,1.0,1,0,
+glr-8,glutamate,excitatory,1.0,1,0,
+mgl-1,glutamate,inhibitory,1.0,0,1,
+mgl-2,glutamate,excitatory,1.0,0,1,
+mgl-3,glutamate,inhibitory,1.0,0,1,
+nmr-1,glutamate,excitatory,1.0,1,0,"[""oocytes"", ""sheath_cells""]"
+nmr-2,glutamate,excitatory,1.0,1,0,
+stg-1,glutamate,unknown,0.5,0,0,
+stg-2,glutamate,unknown,0.5,0,0,
+lgc-34,glycine,inhibitory,1.0,1,0,
+dop-1,dopamine,excitatory,1.0,0,1,"[""excretory_gland"", ""head_muscle""]"
+dop-2,dopamine,inhibitory,1.0,0,1,
+dop-3,dopamine,inhibitory,1.0,0,1,"[""body_wall_muscle""]"
+dop-4,dopamine,excitatory,1.0,0,1,"[""vulval_cells"", ""intestine"", ""rectal_gland"", ""rectal_epithelium""]"
+dop-5,dopamine,unknown,0.5,0,1,
+dop-6,dopamine,unknown,0.5,0,1,
+dop-5,serotonin,unknown,0.5,0,1,
+lgc-50,serotonin,excitatory,1.0,1,0,
+mod-1,serotonin,inhibitory,1.0,1,0,
+ser-1,serotonin,excitatory,1.0,0,1,"[""pharyngeal_muscle"", ""vulval_muscle"", ""uterine_cells"", ""intestine"", ""diagonal_muscle""]"
+ser-3,serotonin,excitatory,0.5,0,1,"[""pharynx"", ""head_muscle"", ""phasmid_socket"", ""intestine"", ""spermatheca"", ""eggs"", ""gonad"", ""vulva""]"
+ser-4,serotonin,inhibitory,1.0,0,1,
+ser-5,serotonin,excitatory,1.0,0,1,"[""vulval_muscle"", ""body_wall_muscle"", ""intestine""]"
+ser-7,serotonin,excitatory,1.0,0,1,"[""vulval_muscle"", ""intestine""]"
+octr-1,octopamine,inhibitory,1.0,0,1,
+ser-3,octopamine,excitatory,0.5,0,1,"[""pharynx"", ""head_muscle"", ""phasmid_socket"", ""intestine"", ""spermatheca"", ""eggs"", ""gonad"", ""vulva""]"
+ser-6,octopamine,excitatory,1.0,0,1,"[""intestine""]"
+tyra-3,octopamine,inhibitory,1.0,0,1,"[""vulva""]"
+lgc-55,tyramine,inhibitory,0.5,1,0,"[""neck_muscle"", ""tail_muscle""]"
+ser-2,tyramine,inhibitory,1.0,0,1,"[""head_muscle"", ""diagonal_muscle"", ""excretory_gland""]"
+tyra-2,tyramine,inhibitory,1.0,0,1,
+tyra-3,tyramine,inhibitory,1.0,0,1,"[""vulva""]"

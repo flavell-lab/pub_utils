@@ -27,7 +27,7 @@ acr-5,,acetylcholine,,1.0,1,0,0,1,0,"[""DB"", ""VB""]",
 acr-6,,acetylcholine,,1.0,1,0,0,1,0,,
 acr-7,,acetylcholine,,1.0,1,0,0,1,0,,"[""pharyngeal_muscle""]"
 acr-8,,acetylcholine,,1.0,1,0,0,1,0,,"[""body_wall_muscle"", ""anal_muscle"", ""vulval_muscle""]"
-acr-9,,acetylcholine,,2.0,2,1,1,2,1,,
+acr-9,,acetylcholine,,1.0,1,1,1,1,1,,
 cup-4,,acetylcholine,,0.0,1,0,0,1,0,,"[""coelomocytes""]"
 deg-3,,acetylcholine,,1.0,1,0,0,1,0,"[""IL2"", ""ALM"", ""AVM"", ""PLM"", ""AVG"", ""PVD"", ""PVC"", ""FLP""]","[""head_muscle""]"
 eat-2,,acetylcholine,,1.0,1,0,0,1,0,"[""MC""]","[""pharyngeal_muscle""]"
@@ -47,7 +47,7 @@ dop-2,,dopamine,,1.0,0,1,0,0,0,"[""ADE"", ""CEP"", ""PDA"", ""PDE"", ""RIA"", ""
 dop-3,,dopamine,,1.0,0,1,0,0,0,"[""ASE"", ""PVD"", ""RIC"", ""SIA""]","[""body_wall_muscle""]"
 dop-4,,dopamine,,1.0,0,1,0,0,0,"[""ASG"", ""AVL"", ""CAN"", ""I1"", ""I2"", ""PQR"", ""ASH""]","[""vulval_cells"", ""intestine"", ""rectal_gland"", ""rectal_epithelium""]"
 dop-5,,dopamine,,0.5,0,1,0,0,0,"[""ASE""]",
-dop-6,,dopamine,,1.0,0,1,0,0,0,,
+dop-6,,dopamine,,0.5,0,1,0,0,0,,
 exp-1,,gaba,,1.0,1,0,0,0,0,"[""ADE"", ""PDA"", ""RID"", ""SABD""]","[""intestinal_muscle"", ""anal_depressor_muscle""]"
 gab-1,,gaba,,1.0,1,0,0,0,0,"[""ALM"", ""AVM"", ""PLM""]",
 gbb-1,,gaba,,1.0,0,1,0,0,1,,

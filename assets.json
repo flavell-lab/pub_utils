@@ -73,7 +73,10 @@
   },
 
   "pairing_info": {
-    "neurotransmitter": "data/Altun2013/NT_receptor_info.csv",
+    "neurotransmitter": {
+      "Altun2013": "data/Altun2013/NT_receptor_info.csv",
+      "merged": "connectomes/NT_receptor_info.csv"
+    },
     "neuropeptide": {
       "Altun2013": "data/Altun2013/NPP_receptor_info.csv",
       "Bentley2016": "data/Bentley2016/NPP_receptor_info.csv",

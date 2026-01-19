@@ -1,0 +1,34 @@
+overview: 
+candy manually compared the output of Deep Research performed by Gemini on 2026-01-19 with Fenvyes2020/NT_receptor_polarity.csv from his publication on ionotropic receptors. 
+candy made changes to the CSV files in the directory after carrying out investigative processes.
+this text file serves as documentation of what candy did on 2026-01-19 for future reference.
+
+====================================
+
+issue: exp-1 was reported to be excitatory in Fenvyes2020 but deemed inhibitory by DeepResearch.
+process: candy read an original paper on exp-1 from Beg et al., 2003, and decided to agree with Fenvyes2020. 
+outcome: candy changed exp-1 from inhibitory to excitatory in the CSV files. Gemini's full report in the link was kept untouched.
+
+====================================
+
+issue: glr-3 was treated as inhibitory by Fenvyes2020 but deemed to be variable by Gemini because of an original paper from Shawn Xu's lab claiming that glr-3 can function through Gi/o pathway to excite a neuron.
+process: candy searched for original papers on Google Scholar - Labs and learnt that Gq, Gs, Gi and Go receptors can have excitatory or inhibitory effects on neurons depending on downstream signaling cascades they trigger, so glr-3 is not an exception in this regard. glr-3 is exception in the sense that it is both ionotropic and metabotropic, but that does not affect its polarity.
+outcome: candy changed glr-3 from variable to excitatory in the CSV files. Gemini's full report in the link was kept untouched.
+
+====================================
+
+issue: candy noticed lgc-36, lgc-37 and lgc-38 was deemed to be inhibitory GABA receptors by Fenvyes2020 but Gemini deemed their polarity to be unknown.
+process: candy searched for original papers on Google Scholar - Labs and found 3 original papers on lgc-36, lgc-37 and lgc-38. candy skimmed through the papers and decided that their polarity is not confirmed experimentally as of 2026-01-19, therefore she agreed with Gemini this time.
+outcome: candy kept lgc-36, lgc-37 and lgc-38 as unknown in terms of polarity in the CSV files. Fenvyes2020 was kept untouched.
+
+====================================
+
+issue: polarity of metabotropic receptors and most monoamine receptors was not compiled in one publication that candy can easily check against.
+process: candy used her domain knowledge to confirm the polarity of the 6 serotonergic receptors. she raised the following questions to Google Scholar - Labs and checked the result of Gemini's DeepResearch against the excerpts manually.
+"what are the metabotropic receptors for glutamate in C. elegans? are they excitatory or inhibitory?"
+"focus on mgl-2 and mgl-3. are they known to be excitatory receptors for gluatamate in C. elegans?"
+"what are the receptors for tyramine in C. elegans? are they excitatory or inhibitory?"
+"what are the receptors for octopamine in C. elegans? are they excitatory or inhibitory?"
+when searching through original papers is inconclusive, candy resorted to Uniprot's Enzyme and pathway databases, such as in the case of mgl-2 and gar-3.
+since some dopamine, tyramine and octopamine receptors remain to be deorphanized, candy consulted talya kramer and lillie godinez to confirm that all identified receptors as of 2026-01-19 were included for these monoamines.
+outcome: candy changed mgl-2 from inhibitory to excitatory, and gar-3 from excitatory to variable per Uniprot database. Gemini's full report in the link was kept untouched.

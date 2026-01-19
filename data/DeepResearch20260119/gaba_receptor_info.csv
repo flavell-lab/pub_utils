@@ -1,0 +1,21 @@
+receptor,polarity,mechanism,sources
+exp-1,excitatory,"Cation-selective (Na+, K+) channel","[Beg et al., 2003]"
+gab-1,inhibitory,"Anion-selective (Cl-) channel","[Putrenko et al., 2005]"
+gbb-1,inhibitory,"Metabotropic; Gα_o/i coupling","[Chase and Koelle, 2007]"
+gbb-2,inhibitory,"Metabotropic; Gα_o/i coupling","[Chase and Koelle, 2007]"
+ggr-1,inhibitory,"Anion-selective (Cl-) channel","[Putrenko et al., 2005]"
+ggr-2,inhibitory,"Anion-selective (Cl-) channel","[Putrenko et al., 2005]"
+ggr-3,inhibitory,"Anion-selective (Cl-) channel","[Putrenko et al., 2005]"
+lgc-35,excitatory,"Cation-selective (Na+, K+) channel","[Jobson et al., 2015]"
+lgc-36,unknown,"orphan Cys-loop subunit","[Hobert, 2013]"
+lgc-37,unknown,"orphan Cys-loop subunit","[Hobert, 2013]"
+lgc-38,unknown,"orphan Cys-loop subunit","[Hobert, 2013]"
+lgc-39,inhibitory,"Anion-selective (Cl-) channel",
+lgc-40,inhibitory,"Anion-selective (Cl-) channel",
+lgc-41,unknown,"orphan Cys-loop subunit","[Hobert, 2013]"
+lgc-42,unknown,"orphan Cys-loop subunit","[Hobert, 2013]"
+lgc-51,inhibitory,"Anion-selective (Cl-) channel",
+lgc-52,inhibitory,"Anion-selective (Cl-) channel",
+lgc-53,inhibitory,"Anion-selective (Cl-) channel",
+lgc-54,inhibitory,"Anion-selective (Cl-) channel",
+unc-49,inhibitory,"Anion-selective (Cl-) channel","[Hobert, 2013]"
