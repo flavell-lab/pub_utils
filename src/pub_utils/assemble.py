@@ -69,7 +69,8 @@ def _load_pairing_info(molecule_type: str = "neurotransmitter", source: str = No
     if cache_key not in _PAIRING_INFO_CACHE:
         assets = _load_assets()
         if molecule_type == "neurotransmitter":
-            path = _get_path(assets["pairing_info"]["neurotransmitter"])
+            # Use "merged" pairing info for neurotransmitters
+            path = _get_path(assets["pairing_info"]["neurotransmitter"]["merged"])
         else:
             if source is None:
                 raise ValueError("source required for neuropeptide pairing info")

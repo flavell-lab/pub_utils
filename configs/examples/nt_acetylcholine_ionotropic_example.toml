@@ -1,0 +1,48 @@
+# Example: Acetylcholine ionotropic receptor connectome
+#
+# This configuration assembles an acetylcholine molecular connectome
+# restricted to ionotropic (nicotinic) receptors using:
+# - Release: Wang2024 reporter data (unc-17 expression)
+# - Receptor: Fenyves2020 sequencing data (ionotropic only)
+# - Constraint: Cook2019 chemical synapse connectome (binary mode)
+#
+# Note: Ionotropic receptors mediate fast synaptic transmission via ligand-gated
+# ion channels, while metabotropic receptors (muscarinic) signal via G-proteins.
+#
+# Usage:
+#   python scripts/assemble_connectome.py configs/examples/nt_acetylcholine_ionotropic_example.toml
+
+version = "1.0"
+
+[metadata]
+name = "acetylcholine_ionotropic_constrained"
+description = "Acetylcholine ionotropic (nicotinic) connectome using Wang2024 release and Fenyves2020 receptors"
+author = ""
+date = "2026-01-19"
+
+[assembly]
+molecule_type = "neurotransmitter"
+molecule = "acetylcholine"
+
+[assembly.release]
+markers = ["release"]                    # unc-17 vesicular acetylcholine transporter
+sources = ["reporter:Wang2024"]          # Wang2024 reporter data (has unc-17)
+gate = "or"
+
+[assembly.receptor]
+sources = ["sequencing:Fenyves2020"]     # Fenyves2020 single-cell RNA-seq
+gate = "or"
+type = "ionotropic"                      # Only nicotinic (ion channel) receptors
+
+[constraint]
+enabled = true
+structural_dataset = "Cook2019"
+mode = "binary"
+
+[output]
+directory = "connectomes/candy_assembly/acetylcholine"
+basename = "acetylcholine_ionotropic_Cook2019"
+formats = ["csv"]
+save_per_pair = true
+save_count = true
+save_binary = true

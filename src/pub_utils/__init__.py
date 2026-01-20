@@ -19,6 +19,19 @@ from .constrain import (
     constrain_assembly,
     get_available_structural_datasets,
 )
+from .config import (
+    AssemblyConfig,
+    ReleaseConfig,
+    ReceptorConfig,
+    ConstraintConfig,
+    OutputConfig,
+    load_assembly_config,
+    validate_config,
+    save_config,
+    config_to_dict,
+    compute_config_hash,
+    create_metadata_sidecar,
+)
 
 # Define what is exported when someone does 'from pub_utils import *'
 __all__ = [
@@ -49,6 +62,18 @@ __all__ = [
     "apply_structural_constraint",
     "constrain_assembly",
     "get_available_structural_datasets",
+    # Config functions
+    "AssemblyConfig",
+    "ReleaseConfig",
+    "ReceptorConfig",
+    "ConstraintConfig",
+    "OutputConfig",
+    "load_assembly_config",
+    "validate_config",
+    "save_config",
+    "config_to_dict",
+    "compute_config_hash",
+    "create_metadata_sidecar",
 ]
 
 __version__ = "0.1.0"

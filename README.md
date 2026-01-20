@@ -201,7 +201,7 @@ Note: Files marked `(raw)` are original source files kept for reference but not 
 ```
 Connectome[source, target] = Release[source, NT] AND Receptor[target, receptor] AND (optional) Constraint
 where (NT, receptor) is a valid pair from pairing_info with confidence >= 1
-and 
+and
 Constraint is set with structural chemical synapses and applicable to classical NT (acetylcholine, glutamate)
 ```
 
@@ -212,6 +212,83 @@ Constraint is set with structural chemical synapses and applicable to classical 
 3. **Confidence threshold**: Applied in code logic (confidence < 1 treated as 0)
 4. **Missing values**: Preserved as NaN throughout, all functions robust to NaN
 5. **Output location**: Assembled connectomes saved under `connectomes/{username}_assembly` in `assets.json`
+
+### Config-Driven Assembly (Recommended)
+
+For reproducible assemblies, use TOML configuration files with the CLI runner:
+
+```bash
+# Validate a config file
+python scripts/assemble_connectome.py --validate-only configs/examples/nt_dopamine_example.toml
+
+# Run an assembly
+python scripts/assemble_connectome.py configs/examples/nt_dopamine_example.toml
+
+# Run quietly (suppress progress messages)
+python scripts/assemble_connectome.py -q configs/examples/nt_dopamine_example.toml
+```
+
+**Example TOML config** (`configs/examples/nt_dopamine_example.toml`):
+```toml
+version = "1.0"
+
+[metadata]
+name = "dopamine_reporter_constrained"
+description = "Dopamine connectome using Wang2024 reporter data"
+
+[assembly]
+molecule_type = "neurotransmitter"
+molecule = "dopamine"
+
+[assembly.release]
+markers = ["release"]                    # cat-1 vesicular monoamine transporter
+sources = ["reporter:Wang2024"]
+gate = "or"
+
+[assembly.receptor]
+sources = ["reporter:Muralidhara2025"]
+gate = "or"
+type = "all"
+
+[constraint]
+enabled = true
+structural_dataset = "Cook2019"
+mode = "binary"
+
+[output]
+directory = "connectomes/candy_assembly/dopamine"
+basename = "dopamine_reporter_Cook2019"
+save_per_pair = true
+save_count = true
+save_binary = true
+```
+
+**Output files:**
+- `{basename}_binary.csv` - Binary adjacency matrix (1 if any connection exists)
+- `{basename}_count.csv` - Count matrix (number of receptor types per connection)
+- `{basename}_per_pair/{receptor}.csv` - Per-receptor adjacency matrices
+- `{basename}_metadata.json` - Assembly metadata (config hash, timestamp, stats)
+
+**Available example configs:**
+- `configs/examples/nt_dopamine_example.toml` - Dopamine with Wang2024 reporter + Muralidhara2025 receptors
+- `configs/examples/nt_acetylcholine_ionotropic_example.toml` - Acetylcholine ionotropic receptors only
+- `configs/examples/npp_flp1_example.toml` - FLP-1 neuropeptide
+
+**Data source coverage:**
+| Molecule | Release Sources | Receptor Sources |
+|----------|----------------|------------------|
+| Dopamine | `reporter:Wang2024`, `literature:Bentley2016` | `reporter:Muralidhara2025`, `sequencing:Muralidhara2025` |
+| Serotonin | `reporter:Wang2024`, `literature:Bentley2016` | `reporter:Dag2023` |
+| Acetylcholine | `reporter:Wang2024` | `sequencing:Fenyves2020` (ionotropic), `reporter:HobertLab` (metabotropic) |
+| GABA | `reporter:Wang2024` | `sequencing:Fenyves2020` (ionotropic), `reporter:HobertLab` (all) |
+| Glutamate | `reporter:Wang2024` | `sequencing:Fenyves2020` (ionotropic) |
+| Tyramine | `literature:Bentley2016` | `literature:Bentley2016` |
+| Octopamine | `literature:Bentley2016` | `literature:Bentley2016` |
+| Neuropeptides | `sequencing:RipollSanchez2023`, `literature:Bentley2016` | `sequencing:RipollSanchez2023`, `literature:Bentley2016` |
+
+**Note:** `literature:Bentley2016` release data only covers monoamines (cat-2, dat-1, mod-5, tbh-1, tdc-1, tph-1). For acetylcholine/GABA/glutamate release, use `reporter:Wang2024` which includes unc-17 (ACh), unc-25 (GABA), and eat-4 (glutamate).
+
+See `docs/molecular_connectome_assembly_with_config.md` for full documentation including MCP server plans
 
 
 ## External links 

@@ -1,0 +1,44 @@
+# Example: Dopamine connectome using reporter data with structural constraint
+#
+# This configuration assembles a dopamine molecular connectome using:
+# - Release: Wang2024 reporter data (cat-1 expression)
+# - Receptor: Muralidhara2025 reporter data for dopamine receptors
+# - Constraint: Cook2019 chemical synapse connectome (binary mode)
+#
+# Usage:
+#   python scripts/assemble_connectome.py configs/examples/nt_dopamine_example.toml
+
+version = "1.0"
+
+[metadata]
+name = "dopamine_reporter_constrained"
+description = "Dopamine connectome using Wang2024 reporter data, constrained by Cook2019 structure"
+author = ""
+date = "2026-01-19"
+
+[assembly]
+molecule_type = "neurotransmitter"
+molecule = "dopamine"
+
+[assembly.release]
+markers = ["release"]                    # cat-1 vesicular monoamine transporter
+sources = ["reporter:Wang2024"]          # Wang2024 reporter data
+gate = "or"
+
+[assembly.receptor]
+sources = ["reporter:Muralidhara2025"]   # Muralidhara2025 dopamine receptor reporter data
+gate = "or"
+type = "all"                             # Include all receptor types
+
+[constraint]
+enabled = true
+structural_dataset = "Cook2019"          # Adult hermaphrodite connectome
+mode = "binary"                          # Binary mask (connection exists or not)
+
+[output]
+directory = "connectomes/candy_assembly/dopamine"
+basename = "dopamine_reporter_Cook2019"
+formats = ["csv"]
+save_per_pair = true
+save_count = true
+save_binary = true

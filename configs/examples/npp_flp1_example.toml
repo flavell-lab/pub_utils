@@ -1,0 +1,49 @@
+# Example: FLP-1 neuropeptide connectome
+#
+# This configuration assembles a FLP-1 neuropeptide molecular connectome using:
+# - Release: RipollSanchez2023 sequencing data (neuropeptide expression)
+# - Receptor: RipollSanchez2023 sequencing data for FLP-1 receptors
+# - Pairing: RipollSanchez2023 ligand-receptor pairing information
+# - Constraint: Cook2019 chemical synapse connectome (binary mode)
+#
+# FLP-1 is a FMRFamide-related neuropeptide involved in locomotion and
+# other behaviors. It signals through DMSR-7 receptor.
+#
+# Usage:
+#   python scripts/assemble_connectome.py configs/examples/npp_flp1_example.toml
+
+version = "1.0"
+
+[metadata]
+name = "flp1_constrained"
+description = "FLP-1 neuropeptide connectome from RipollSanchez2023 sequencing data"
+author = ""
+date = "2026-01-19"
+
+[assembly]
+molecule_type = "neuropeptide"
+molecule = "flp-1"
+pairing_source = "RipollSanchez2023"     # Required for neuropeptides
+
+[assembly.release]
+markers = []                             # Not used for NPP (direct NPP lookup)
+sources = ["sequencing:RipollSanchez2023"]
+gate = "or"
+
+[assembly.receptor]
+sources = ["sequencing:RipollSanchez2023"]
+gate = "or"
+type = "all"                             # NPP receptors are all metabotropic (GPCRs)
+
+[constraint]
+enabled = true
+structural_dataset = "Cook2019"
+mode = "binary"
+
+[output]
+directory = "connectomes/candy_assembly/neuropeptide"
+basename = "flp1_RipollSanchez2023_Cook2019"
+formats = ["csv"]
+save_per_pair = true
+save_count = true
+save_binary = true
