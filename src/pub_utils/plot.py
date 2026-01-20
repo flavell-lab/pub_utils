@@ -150,8 +150,94 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_labe
 
     plt.tight_layout()
     plt.show()
-    
+
     # Return the figure
+    return fig
+
+
+def plot_similarity_matrix(plot_df, title="", colormap_name='viridis', colorbar_label='Cosine Similarity', vmin=0, vmax=1, show_blocks=True):
+    """
+    Plot a similarity matrix as a heatmap with continuous color scale.
+
+    Args:
+        plot_df: DataFrame with similarity data (values typically 0-1)
+        title: Plot title
+        colormap_name: Name of matplotlib colormap to use
+        colorbar_label: Label for the colorbar
+        vmin: Minimum value for colormap (default 0)
+        vmax: Maximum value for colormap (default 1)
+        show_blocks: If True and neuron order matches AllHermNeurons, show block dividers and labels
+    """
+    # Get the continuous colormap
+    cmap = plt.get_cmap(colormap_name)
+    cmap.set_bad("0.3")  # Grey for NaN values
+
+    # Create continuous normalization
+    norm = mcolors.Normalize(vmin=vmin, vmax=vmax)
+
+    # Plotting
+    fig, ax = plt.subplots(figsize=(20, 22))
+    ax.set_aspect('equal')
+
+    # Create heatmap with continuous colormap
+    hm = sns.heatmap(
+        plot_df,
+        fmt="",
+        cmap=cmap,
+        norm=norm,
+        cbar=True,
+        cbar_kws={
+            'orientation': 'horizontal',
+            'shrink': 0.4,
+            'pad': 0.05,
+        },
+        xticklabels=True,
+        yticklabels=True,
+        linewidths=0.05,
+        linecolor=(0.5, 0.5, 0.5, 0.2),
+        ax=ax
+    )
+
+    # Colorbar modifications
+    cbar = ax.collections[0].colorbar
+    cbar.outline.set_visible(True)
+    cbar.outline.set_linewidth(1)
+    cbar.outline.set_edgecolor('black')
+    cbar.set_label(colorbar_label, size=20, weight='bold', labelpad=5)
+
+    # Titles and Labels
+    plt.title(title, fontsize=32, pad=48, fontweight='bold')
+    plt.xticks(rotation=90, fontsize=5)
+    plt.yticks(rotation=0, fontsize=5)
+    plt.xlabel(f'{len(plot_df.columns)} Recipient Neurons', fontsize=20, fontweight='bold')
+    plt.ylabel(f'{len(plot_df.index)} Source Neurons', fontsize=20, fontweight='bold')
+
+    # Check if neuron order matches AllHermNeurons and add block dividers/labels
+    neuron_order = list(plot_df.index)
+    if show_blocks and neuron_order == AllHermNeurons:
+        n_neurons = len(neuron_order)
+
+        # Draw white lines at block boundaries
+        for block_name, start_idx, end_idx in AllHermNeuronBlocks[:-1]:
+            boundary = end_idx + 1
+            ax.axhline(y=boundary, color='white', linewidth=2, zorder=10)
+            ax.axvline(x=boundary, color='white', linewidth=2, zorder=10)
+
+        # Add block labels on the sides
+        for block_name, start_idx, end_idx in AllHermNeuronBlocks:
+            mid_idx = (start_idx + end_idx) / 2 + 0.5
+
+            ax.text(n_neurons + 1, mid_idx, block_name,
+                    va='center', ha='left', fontsize=20, fontweight='bold',
+                    rotation=270)
+
+            ax.text(mid_idx, -1, block_name,
+                    va='bottom', ha='center', fontsize=20, fontweight='bold',
+                    rotation=0)
+
+    plt.tight_layout()
+    plt.show()
+
     return fig
 
 

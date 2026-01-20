@@ -174,5 +174,20 @@
         }
       }
     }
+  },
+
+  "similarity_matrices": {
+    "sensory": "connectomes/similarity/sensory_similarity.csv",
+    "process": "connectomes/similarity/process_similarity.csv",
+    "release": {
+      "nt": "connectomes/similarity/release_nt_similarity.csv",
+      "npp": "connectomes/similarity/release_npp_similarity.csv",
+      "combined": "connectomes/similarity/release_similarity.csv"
+    },
+    "receptor": {
+      "nt": "connectomes/similarity/receptor_nt_similarity.csv",
+      "npp": "connectomes/similarity/receptor_npp_similarity.csv",
+      "combined": "connectomes/similarity/receptor_similarity.csv"
+    }
   }
 }

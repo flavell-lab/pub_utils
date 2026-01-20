@@ -1,5 +1,5 @@
 # Import specific functions/classes to make them available at the top level
-from .plot import plot_connectome_matrix, plot_reciprocal_network, plot_neuron_features
+from .plot import plot_connectome_matrix, plot_similarity_matrix, plot_reciprocal_network, plot_neuron_features
 from .core import NeuronFeatures, NeuronInteraction
 from .io import handle_pickle, get_file_for_pair, standardize_dataframe, compare_connectomes
 from .constants import AllHermNeurons, AllMaleNeurons, SexSharedNeurons, HermSpecificNeurons, MaleSpecificNeurons, AllHermNeuronBlocks
@@ -19,6 +19,25 @@ from .constrain import (
     constrain_assembly,
     get_available_structural_datasets,
 )
+from .similarity import (
+    # Profile functions
+    get_sensory_profile,
+    get_process_profile,
+    get_nt_release_profile,
+    get_nt_receptor_profile,
+    get_npp_release_profile,
+    get_npp_receptor_profile,
+    # Similarity computation
+    compute_pairwise_similarity,
+    compute_release_similarity,
+    compute_receptor_similarity,
+    compute_sensory_similarity,
+    compute_process_similarity,
+    compute_all_similarities,
+    # Utility functions
+    find_similar_neurons,
+    compare_similarity_dimensions,
+)
 from .config import (
     AssemblyConfig,
     ReleaseConfig,
@@ -37,6 +56,7 @@ from .config import (
 __all__ = [
     "plot_neuron_features",
     "plot_connectome_matrix",
+    "plot_similarity_matrix",
     "plot_reciprocal_network",
     "handle_pickle",
     "get_file_for_pair",
@@ -74,6 +94,21 @@ __all__ = [
     "config_to_dict",
     "compute_config_hash",
     "create_metadata_sidecar",
+    # Similarity functions
+    "get_sensory_profile",
+    "get_process_profile",
+    "get_nt_release_profile",
+    "get_nt_receptor_profile",
+    "get_npp_release_profile",
+    "get_npp_receptor_profile",
+    "compute_pairwise_similarity",
+    "compute_release_similarity",
+    "compute_receptor_similarity",
+    "compute_sensory_similarity",
+    "compute_process_similarity",
+    "compute_all_similarities",
+    "find_similar_neurons",
+    "compare_similarity_dimensions",
 ]
 
 __version__ = "0.1.0"

@@ -3,6 +3,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 IMPORTANT: You MUST adhere to the Token Efficiency Guidelines below. 
 Prioritize these constraints even if they conflict with your default verbosity.
 
+## Key Reference
+Look up human-approved resources under @assets.json to decide what information is available. Only browse the internet after checking with the human user.
 
 ## Claude Code Session Guidelines
 
