@@ -1,0 +1,15 @@
+{
+  "created": "2026-03-10T15:44:27.665433",
+  "molecule": "octopamine",
+  "release_markers": [
+    "synthesis"
+  ],
+  "release_sources": [
+    "literature:Bentley2016"
+  ],
+  "release_gate": "and",
+  "receptor_sources": [
+    "literature:Bentley2016"
+  ],
+  "receptor_gate": "or"
+}

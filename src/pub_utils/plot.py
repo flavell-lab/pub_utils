@@ -17,7 +17,11 @@ def plot_connectome_matrix(plot_df, title="", colormap_name='hot', colorbar_labe
         show_blocks: If True and neuron order matches AllHermNeurons, show block dividers and labels
     """
     # Determine max value and create adaptive colormap from continuous colormap
-    actual_max = int(np.nanmax(plot_df.values))
+    # Check if there are any non-NaN values at all
+    if np.isnan(plot_df.values).all():
+        actual_max = 0  # Or some other sensible default for your plot
+    else:
+        actual_max = int(np.nanmax(plot_df.values))
 
     # Check if we need to clip the colormap
     if colormap_thresh is not None and actual_max > colormap_thresh:

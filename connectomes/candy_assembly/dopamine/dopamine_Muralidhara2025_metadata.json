@@ -1,0 +1,15 @@
+{
+  "created": "2026-03-10T15:34:27.825722",
+  "molecule": "dopamine",
+  "release_markers": [
+    "synthesis"
+  ],
+  "release_sources": [
+    "literature:Bentley2016"
+  ],
+  "release_gate": "and",
+  "receptor_sources": [
+    "reporter:Muralidhara2025"
+  ],
+  "receptor_gate": "or"
+}

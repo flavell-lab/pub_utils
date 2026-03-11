@@ -1,0 +1,15 @@
+{
+  "created": "2026-03-10T15:40:34.742762",
+  "molecule": "acetylcholine",
+  "release_markers": [
+    "synthesis"
+  ],
+  "release_sources": [
+    "reporter:Wang2024"
+  ],
+  "release_gate": "and",
+  "receptor_sources": [
+    "reporter:HobertLab"
+  ],
+  "receptor_gate": "or"
+}

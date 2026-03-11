@@ -1,0 +1,15 @@
+{
+  "created": "2026-03-10T15:36:03.134578",
+  "molecule": "serotonin",
+  "release_markers": [
+    "synthesis"
+  ],
+  "release_sources": [
+    "literature:Bentley2016"
+  ],
+  "release_gate": "and",
+  "receptor_sources": [
+    "reporter:Dag2023"
+  ],
+  "receptor_gate": "or"
+}

@@ -38,6 +38,21 @@ from .similarity import (
     find_similar_neurons,
     compare_similarity_dimensions,
 )
+from .metrics import (
+    compute_sparsity,
+    compute_modularity,
+    compute_hubness,
+    compute_recurrence,
+    compute_metrics,
+    compute_all_metrics,
+)
+from .generate import (
+    generate_sparse,
+    generate_modular,
+    generate_hub,
+    generate_reciprocal,
+    generate_clustered,
+)
 from .config import (
     AssemblyConfig,
     ReleaseConfig,
@@ -109,6 +124,19 @@ __all__ = [
     "compute_all_similarities",
     "find_similar_neurons",
     "compare_similarity_dimensions",
+    # Network metrics
+    "compute_sparsity",
+    "compute_modularity",
+    "compute_hubness",
+    "compute_recurrence",
+    "compute_metrics",
+    "compute_all_metrics",
+    # Graph generators
+    "generate_sparse",
+    "generate_modular",
+    "generate_hub",
+    "generate_reciprocal",
+    "generate_clustered",
 ]
 
 __version__ = "0.1.0"
