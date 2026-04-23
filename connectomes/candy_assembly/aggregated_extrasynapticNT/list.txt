@@ -1,0 +1,5 @@
+/store1/shared/pub_utils/connectomes/candy_assembly/dopamine/dopamine_Muralidhara2025_count.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/serotonin/serotonin_Dag2023_count.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/octopamine/octopamine_Bentley2016_count.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/tyramine/tyramine_Bentley2016_count.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/aggregated_neuropeptides/*_RipollSanchez2023_count.csv

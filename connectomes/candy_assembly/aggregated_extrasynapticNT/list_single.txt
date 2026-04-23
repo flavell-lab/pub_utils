@@ -1,0 +1,17 @@
+/store1/shared/pub_utils/connectomes/candy_assembly/dopamine/dopamine_dop-1_Muralidhara2025.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/dopamine/dopamine_dop-2_Muralidhara2025.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/dopamine/dopamine_dop-3_Muralidhara2025.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/dopamine/dopamine_dop-4_Muralidhara2025.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/serotonin/serotonin_lgc-50_Dag2023.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/serotonin/serotonin_mod-1_Dag2023.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/serotonin/serotonin_ser-1_Dag2023.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/serotonin/serotonin_ser-4_Dag2023.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/serotonin/serotonin_ser-5_Dag2023.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/serotonin/serotonin_ser-7_Dag2023.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/octopamine/octopamine_octr-1_Bentley2016.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/octopamine/octopamine_ser-6_Bentley2016.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/octopamine/octopamine_tyra-3_Bentley2016.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/tyramine/tyramine_ser-2_Bentley2016.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/tyramine/tyramine_tyra-2_Bentley2016.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/tyramine/tyramine_tyra-3_Bentley2016.csv
+/store1/shared/pub_utils/connectomes/candy_assembly/individual_neuropeptides/*_*_RipollSanchez2023_midRange.csv

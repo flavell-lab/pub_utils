@@ -296,6 +296,62 @@ def compute_clustering(matrix: Union[pd.DataFrame, NeuronInteraction]) -> dict:
 
 
 # =============================================================================
+# Path Length
+# =============================================================================
+
+def compute_path_length_matrix(
+    matrices: list[pd.DataFrame],
+    directed: bool = True,
+) -> pd.DataFrame:
+    """
+    Compute all-pairs shortest path lengths over the union of binary connectomes.
+
+    Each input matrix is binarized (non-zero → 1) and their edges are unioned
+    into a single graph. BFS shortest path lengths are computed for every
+    ordered pair of nodes. Unreachable pairs are set to np.inf.
+
+    Args:
+        matrices: List of neuron×neuron adjacency DataFrames (same node set).
+        directed: If True (default), build a DiGraph. If False, build an
+            undirected Graph (useful when all inputs are symmetric).
+
+    Returns:
+        DataFrame of shape (N, N) with integer shortest-path lengths.
+        Diagonal is 0, unreachable pairs are np.inf.
+    """
+    # Union of all node labels across matrices
+    all_nodes = sorted(
+        set().union(*(set(m.index) | set(m.columns) for m in matrices))
+    )
+
+    G = nx.DiGraph() if directed else nx.Graph()
+    G.add_nodes_from(all_nodes)
+
+    for m in matrices:
+        for src in m.index:
+            for tgt in m.columns:
+                if src == tgt:
+                    continue
+                val = m.loc[src, tgt]
+                if pd.notna(val) and val != 0:
+                    G.add_edge(src, tgt)
+
+    # BFS all-pairs shortest path (unweighted)
+    n = len(all_nodes)
+    node_idx = {node: i for i, node in enumerate(all_nodes)}
+    dist = np.full((n, n), np.inf)
+    np.fill_diagonal(dist, 0)
+
+    for source, lengths in nx.shortest_path_length(G):
+        i = node_idx[source]
+        for target, d in lengths.items():
+            j = node_idx[target]
+            dist[i, j] = d
+
+    return pd.DataFrame(dist, index=all_nodes, columns=all_nodes)
+
+
+# =============================================================================
 # Convenience Functions
 # =============================================================================
 

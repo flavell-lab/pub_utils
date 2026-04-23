@@ -45,6 +45,7 @@ from .metrics import (
     compute_recurrence,
     compute_metrics,
     compute_all_metrics,
+    compute_path_length_matrix,
 )
 from .generate import (
     generate_sparse,
@@ -131,6 +132,7 @@ __all__ = [
     "compute_recurrence",
     "compute_metrics",
     "compute_all_metrics",
+    "compute_path_length_matrix",
     # Graph generators
     "generate_sparse",
     "generate_modular",
